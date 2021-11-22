@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-size: 16px;
+  }
+
+  @font-face {
+    font-family: "HevelticaNowText";
+
+    src: local("HevelticaNowText"),
+      url(../../public/fonts/HelveticaNowText-LightItalic.ttf) format("ttf");
+  }
+
+  @font-face {
+    font-family: "HevelticaNowText";
+
+    font-weight: 500;
+
+    src: local("HevelticaNowText"),
+      url(../../public/fonts/HelveticaNowText-Medium.ttf) format("ttf");
+  }
+
+  @font-face {
+    font-family: "HevelticaNowText";
+
+    font-weight: bold;
+
+    src: local("HevelticaNowText"),
+      url(../../public/fonts/HelveticaNowText-Bold.ttf) format("ttf");
+  }
+
+  @font-face {
+    font-family: "HevelticaNowText";
+    font-style: italic;
+    font-weight: bold;
+
+    src: local("HevelticaNowText"),
+      url(../../public/fonts/HelveticaNowText-BoldItalic.ttf) format("ttf");
+  }
+
+  @font-face {
+    font-family: "HevelticaNowText";
+
+    src: local("HevelticaNowText"),
+      url(../../public/fonts/HelveticaNowText-Regular.ttf) format("ttf");
+  }
+}
+
+@layer components {
+  h2 {
+    @apply text-4xl font-bold;
+  }
+}
