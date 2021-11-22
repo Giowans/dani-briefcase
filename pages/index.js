@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import Gallery from "../src/components/Gallery/Gallery";
 import Divider from "../src/components/Divider/Divider";
+import Review from "../src/components/Review/Review";
+import Footer from "../src/components/Footer";
 
 const images = [
   {
@@ -39,6 +41,56 @@ const images = [
   {
     path: "/images/w9.png",
     title: "Blacky el diablito con suerte",
+  },
+];
+
+const thinkers = [
+  {
+    title: "Sensacional del diseño mexicano",
+    type: "Blog",
+    mediaType: "image",
+    path: "/images/t1.png",
+    description: `Sensacional del diseño mexicano es una serie de documentales que fueron elaborados en base al libro recopilatorio de sensacional del diseño por Juan Carlos Mena, Déborah Holtz y Oscar Reyes. El  documental esta divido en diferentes ramas de lo que es la gráfica popular mexicana.`,
+  },
+  {
+    title: "Helvetica",
+    type: "Documental",
+    mediaType: "image",
+    path: "/images/t2.png",
+    description:
+      "Helvetica es un documental de diseño gráfico enfocado en la famosa tipografía con el mismo nombre del título, nos muestra una forma de pensar hacía la publicidad, la comunicación y en general sobre la cultura visual. ",
+  },
+  {
+    title: "Foroalfa: el universo de las marcas con mejor explicación",
+    type: "Blog",
+    mediaType: "youtube",
+    path: "HzsnhUo_5mo",
+    description:
+      "Foroalfa es un blog en linea creado por Norberto Chaves, Luciano Cassisi, y  Raúl Beluccia  donde muestran distintos artículos que hablan sobre el diseño gráfico en distintas áreas. Además cuentan con un canal de YouTube donde hablan sobre diseño de marca. ",
+  },
+  {
+    title: "Marco creativo: Un apasionado de las marcas",
+    type: "Blog",
+    mediaType: "image",
+    path: "/images/t4.png",
+    description:
+      "Marco es un diseñador español apasionado por el mundo de las marcas, cuenta con su propio estudio donde desarrolla estructuras de marcas, así como diseño de elementos identificatorios del mismo. Un diseñador con grandes ideas que enseña sobre lo que hace.",
+  },
+  {
+    title: "Creación de un logotipo original desde cero",
+    type: "Clase",
+    mediaType: "image",
+    path: "/images/t5.png",
+    description:
+      "Creación de un logotipo desde cero es una master class, de domestika, donde podrás aprender como su nombre lo indica, cómo crear una marca, con una metodología propia de tatabi estudio.",
+  },
+  {
+    title: "Fundamentos del diseño, un libro que debes leer",
+    type: "Libro",
+    mediaType: "image",
+    path: "/images/t6.png",
+    description:
+      "Fundamentos del diseño de Wucios Wong, es un libro excepcional donde habla completamente de las bases del diseño; la figura, formas, texturas y demás, un libro que sin lugar a dudas deber leer si quieres entrar al mundo del diseño.",
   },
 ];
 
@@ -157,6 +209,26 @@ export default function Home() {
           <font className="text-red-600">Pensar</font> es parte del proceso para{" "}
           <font className="text-red-600">crear ideas</font>
         </h2>
+        {thinkers.map((thinker, index) => {
+          return (
+            <Review
+              className="h-screen mt-8"
+              data={thinker}
+              key={`${thinker.title}-${index}`}
+              animationConfig={[{ top: true, cascade: true }]}
+            />
+          );
+        })}
+
+        <Link href="/thinkers" as="/pensadores">
+          <a className="w-full col-span-12 my-6 text-center text-red-600 hover:text-red-800">
+            Ver todas las reseñas
+          </a>
+        </Link>
+
+        <Divider className="mt-20 mb-0" />
+
+        <Footer extended animationConfig={{ cascade: true }} />
       </div>
     </>
   );

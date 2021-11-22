@@ -27,47 +27,50 @@ const getMediaByType = (mediaType, path, className = '')   => {
 }
 
 const Review = ({format = 'mini',  data, className, key, animationConfig}) => {
-    switch(format)
+
+
+    if(format === 'mini')
     {
-        case 'mini':
-          return (
-            <Flip {...animationConfig[0]}>
-                <div className = {'col-span-4 h-96 '+className} key = {key}>
-                    <h4 className = 'w-full text-xl font-bold'>{data.title || 'Sin titulo'}</h4>
-                    <p className="w-full my-4 text-sm text-gray-600">
-                      {data.type || 'No especificado'}
-                    </p>
-                    { getMediaByType(data.mediaType, data.path)}
-                    <p className="w-full my-4 text-sm text-gray-600">
-                      {data.description || 'Sin descripción'}
-                    </p>
-                    <Link href="/thinkers" as="/pensadores">
-                      <a className="w-full mt-6 hover:text-red-600">
-                        Ver más
-                      </a>
-                    </Link>
-                    <Divider className = 'mt-2'/>
-                </div>
-            </Flip>
-          )
-        case 'standard':
-          return (
-            <div className = 'col-span-12'>
-              <Slide {...animationConfig[0]}>
-                <div className = 'col-span-6'>
-                  <h3 className = 'my-2 text-2xl font-bold text-red-600'>{data.type}</h3>
-                  { getMediaByType(data.mediaType, data.path, 'h-96')}
-                </div>
-              </Slide>
-              <Flip {...animationConfig[1]}>
-                <div className = 'col-span-6'>
-                  <h4 className = 'w-full text-xl font-bold'>{data.title || 'Sin titulo'}</h4>
-                  <p className="w-full my-4 text-sm text-gray-600">
-                    {data.description || 'Sin descripción'}
-                  </p>
-                </div>
-              </Flip>
-            </div>
-          )
+      return (
+        <Flip {...animationConfig[0]}>
+          <div className = {'col-span-4 h-96 '+className} key = {key}>
+            <h4 className = 'w-full h-16 text-xl font-bold'>{data.title || 'Sin titulo'}</h4>
+            <p className="w-full my-4 text-sm text-gray-600">
+              {data.type || 'No especificado'}
+            </p>
+            { getMediaByType(data.mediaType, data.path, 'h-64')}
+            <p className="w-full my-4 text-sm text-gray-600 h-36">
+              {data.description || 'Sin descripción'}
+            </p>
+            <Link href="/thinkers" as="/pensadores">
+              <a className="w-full mt-6 hover:text-red-600">
+                Ver más
+              </a>
+            </Link>
+            <Divider className = 'mt-2'/>
+          </div>
+        </Flip>
+      )
     }
+
+    return (
+      <div className = 'col-span-12'>
+        <Slide {...animationConfig[0]}>
+          <div className = 'col-span-6'>
+            <h3 className = 'my-2 text-2xl font-bold text-red-600'>{data.type}</h3>
+            { getMediaByType(data.mediaType, data.path, 'h-96')}
+          </div>
+        </Slide>
+        <Flip {...animationConfig[1]}>
+          <div className = 'col-span-6'>
+            <h4 className = 'w-full text-xl font-bold'>{data.title || 'Sin titulo'}</h4>
+            <p className="w-full my-4 text-sm text-gray-600">
+              {data.description || 'Sin descripción'}
+            </p>
+          </div>
+        </Flip>
+      </div>
+    )
 }
+
+export default Review;

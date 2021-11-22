@@ -2,6 +2,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import { FaFacebookF } from 'react-icons/fa';
+import { BsInstagram, BsWhatsapp } from 'react-icons/bs';
 
 const Navbar = ({ showNavbar, ...props}) => {
 
@@ -22,10 +24,10 @@ const Navbar = ({ showNavbar, ...props}) => {
     return linkClass;
   } 
   return (
-    <div className = 'fixed z-50 flex flex-row items-center justify-between w-screen px-32 py-5 bg-white'>
+    <div className = 'fixed z-50 flex flex-row items-center justify-between w-screen px-24 py-3 bg-white'>
       <div>
         <Link href = "/" passHref>
-          <Image className = 'cursor-pointer' width={262} height = {39} src = "/images/dani_logo.png"/>
+          <Image className = 'cursor-pointer' width={190} height = {30} src = "/images/dani_logo.png"/>
         </Link>
       </div>
       <div className = 'flex flex-row justify-center'>
@@ -47,6 +49,17 @@ const Navbar = ({ showNavbar, ...props}) => {
         <Link href = '/questionarie' as = '/cuestionario'>
           <a className = {handleRouteActive('/questionarie')}>Cuestionario</a>
         </Link>
+        <div className = 'flex flex-row justify-between px-3 w-28'>
+          <a href = 'https://www.facebook.com/daniel.aranda.543'>
+            <FaFacebookF size = '1.25rem' className = 'text-gray-600'/>
+          </a>
+          <a href = 'https://www.instagram.com/daniaranda/'>
+            <BsInstagram size = '1.25rem' className = 'text-gray-600'/>
+          </a>
+          <a href = 'https://wa.me/523326550350'>
+            <BsWhatsapp size = '1.25rem' className = 'text-gray-600'/>
+          </a>
+        </div>
       </div>
     </div>
   )

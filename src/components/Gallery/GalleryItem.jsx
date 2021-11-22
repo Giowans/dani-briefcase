@@ -36,7 +36,7 @@ const GalleryItem = ({id, className, interval, images}) => {
     {
       let timer = setTimeout(() => {
         setShow(true);
-      }, 500);
+      }, 1000);
 
       return () => {
         clearTimeout(timer);
@@ -45,7 +45,7 @@ const GalleryItem = ({id, className, interval, images}) => {
   }, [show])
   
     return (
-      <Fade bottom when = {show} key = {id}>
+      <Fade top when = {show} key = {id}>
         <div className = {className}>
           <div className = 'relative flex items-center justify-center w-full h-full cursor-pointer' onMouseEnter = {() => setShowTitle(true)} onMouseLeave = {() => setShowTitle(false)}>
             <Image

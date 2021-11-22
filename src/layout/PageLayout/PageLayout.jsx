@@ -9,7 +9,7 @@ const PageLayout = (props) => {
     <div>
       {/**Navbar */}
       <Navbar showNavbar={showNavbar}/>
-      <div className = 'w-screen h-screen px-32 py-20'>{children}</div>
+      <div className = 'w-screen h-screen px-32 py-14'>{children}</div>
     </div>
   );
 };
