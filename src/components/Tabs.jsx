@@ -1,9 +1,13 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Rotate from 'react-reveal/Rotate';
 
-const Tabs = ({options, className, onSelect}) => {
+const Tabs = ({options, className, onSelect, parentActive = ''}) => {
 
     const [active, setActive] = useState(options[0]);
+
+    useEffect(() => {
+      setActive(parentActive);
+    }, [parentActive])
 
     return (
       <Rotate top right cascade>
