@@ -157,7 +157,7 @@ export default function Home() {
             </a>
           </Link>
         </div>
-        <Divider />
+        <Divider className="my-10" />
         <div className="grid lg:grid-cols-12 md:grid-cols-12 sm:grid-cols-12 xs:grid-cols-12 lg:col-span-12 md:col-span-12 sm:col-span-12">
           <div className="flex flex-col items-center lg:col-span-6 md:col-span-6 sm:col-span-12">
             <h2 className="w-full text-red-600">Proyectos</h2>
@@ -203,7 +203,7 @@ export default function Home() {
           </a>
         </Link>
 
-        <Divider />
+        <Divider className="my-10" />
 
         <h2 className="col-span-12 mb-20">
           <font className="text-red-600">Pensar</font> es parte del proceso para{" "}

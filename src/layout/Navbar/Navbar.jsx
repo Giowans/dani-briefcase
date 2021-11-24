@@ -40,9 +40,7 @@ const Navbar = ({ showNavbar, ...props}) => {
         <Link href = '/thinkers' as = '/pensadores'>
           <a className = {handleRouteActive('/thinkers')}>Pensadores</a>
         </Link>
-        <Link href = '/downloadable' as = '/descargable'>
-          <a className = {handleRouteActive('/downloadable')}>Descargable</a>
-        </Link>
+        <a href = '/documents/DA-DLC.pdf' download = 'Portafolio Offline Daniel Aranda' className = {handleRouteActive('/downloadable')}>Descargable</a>
         <Link href = '/contactMe' as = '/contacto'>
           <a className = {handleRouteActive('/contactMe')}>Contacto</a>
         </Link>
