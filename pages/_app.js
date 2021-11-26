@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps }) {
       <>
         <Head>
           <title>Daniel Aranda</title>
-          <link rel="icon" href="/favicon.ico" />
+          <link rel="icon" href="/favicon.svg" />
         </Head>
         <PageLayout>{children}</PageLayout>
       </>

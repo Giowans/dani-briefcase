@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Fade from 'react-reveal/Fade';
 
-const GalleryItem = ({id, className, interval, images}) => {
+const GalleryItem = ({id, className, interval, images, onSelect}) => {
   const [show, setShow] = useState(false);
   const [showTitle, setShowTitle] = useState(false);
   const [imageIndex, setImageIndex] = useState(0);
@@ -45,10 +45,11 @@ const GalleryItem = ({id, className, interval, images}) => {
   }, [show])
   
     return (
-      <Fade top when = {show} key = {id}>
-        <div className = {className}>
+      <Fade when = {show} key = {id}>
+        <div className = {className} onClick = {() => onSelect && onSelect(images[imageIndex].id)}>
           <div className = 'relative flex items-center justify-center w-full h-full cursor-pointer' onMouseEnter = {() => setShowTitle(true)} onMouseLeave = {() => setShowTitle(false)}>
             <Image
+              priority
               fill = "true"
               width = {1300}
               height = {1000}

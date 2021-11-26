@@ -58,7 +58,7 @@ const BriefcaseItem = ({briefcaseData, className, key, minimalist = false, onSel
             />
             <div className = {'flex flex-col justify-start items-start w-full h-full absolute w-full h-full p-8 bg-red-600 transition duration-200 ' + (showTitle ? ' opacity-80' : ' opacity-0')}>
               <h2 className = 'self-start w-full text-white text-start'>{title}</h2>
-              {detail && <h2 className = 'self-start w-full text-white text-start'>{detail}</h2>}
+              {detail && <h2 className = 'self-start w-full mt-2 text-base text-white text-start'>{detail}</h2>}
               {year && <p className = 'mt-2 text-white'>{year}</p>}
               {type && <p className = 'text-white'>{type}</p>}
             </div>

@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
 import GalleryItem from "./GalleryItem";
+import { useRouter } from "next/router";
 
 const Gallery = ({colSpan = 12, rows = 1, cols = 1, formatedImages, itemConfig, interval = 3000, random = true, ...props}) => {
 
   // States
   const [galleryItems, setGalleryItems] = useState([]);
+
+  //router
+  const router = useRouter();
 
   // Methods
   function getRandomInt(min, max) {
@@ -30,7 +34,7 @@ const Gallery = ({colSpan = 12, rows = 1, cols = 1, formatedImages, itemConfig, 
 
   const makeGalleryItemFormat = () => {
     const totalChilds = (rows * cols);
-    const itemClassName = `cs-${Math.round(colSpan/cols)}`;
+    const itemClassName = `col-span-${Math.round(colSpan/cols)}`;
     var itemsOfGallery = [];
     var imagesToRest = [...formatedImages];
 
@@ -59,7 +63,7 @@ const Gallery = ({colSpan = 12, rows = 1, cols = 1, formatedImages, itemConfig, 
       var galleryItem = {
         id: 'g-item-'+i,
         className: itemClassName,
-        interval: random ? getRandomInt(3000, 8000): interval,
+        interval: random ? getRandomInt(8000, 14000): interval,
         images: []
       }
 
@@ -87,7 +91,7 @@ const Gallery = ({colSpan = 12, rows = 1, cols = 1, formatedImages, itemConfig, 
     <div className = {`mt-9 flex grid flex-col gap-4 lg:grid-cols-${colSpan} lg:col-span-${colSpan} md:col-span-${colSpan} sm:col-span-12 xs:col-span-12 md:grid-cols-${colSpan} xs:grid-cols-${colSpan} sm:grid-cols-${colSpan} w-full h-96`}>
       {galleryItems.map((item, index) => {
         return (
-          <GalleryItem className = {item.className} id = {index} interval = {item.interval} images = {item.images} />
+          <GalleryItem className = {item.className} id = {index} interval = {item.interval} images = {item.images} onSelect = {(id) => router.push('/briefcase/' + id)} />
         );
       })}
     </div>

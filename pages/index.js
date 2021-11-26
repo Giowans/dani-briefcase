@@ -7,41 +7,42 @@ import Footer from "../src/components/Footer";
 
 const images = [
   {
+    id: 1,
     path: "/images/w1.png",
     title: "Corazón Contento",
   },
   {
+    id: 2,
     path: "/images/w2.png",
     title: "Los Bunkers Identidad Ep",
   },
+  { id: 3, path: "/images/w3.png", title: "Séptima Taquilla" },
   {
-    path: "/images/w3.png",
-    title: "Séptima Taquilla",
-  },
-  {
+    id: 10,
     path: "/images/w4.png",
     title: "UNISUN",
   },
   {
+    id: 12,
     path: "/images/w5.png",
     title: "Neon Eyes",
   },
   {
+    id: 5,
     path: "/images/w6.png",
     title: "UVIC",
   },
   {
+    id: 7,
     path: "/images/w7.png",
     title: "Joys",
   },
   {
+    id: 9,
     path: "/images/w8.png",
     title: "MIPAA",
   },
-  {
-    path: "/images/w9.png",
-    title: "Blacky el diablito con suerte",
-  },
+  { id: 11, path: "/images/w9.png", title: "Blacky el diablito con suerte" },
 ];
 
 const thinkers = [
