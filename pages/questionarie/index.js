@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Fade from "react-reveal/Fade";
 
 const QuestionariePage = () => {
-  const [formIndex, setFormIndex] = useState(2);
+  const [formIndex, setFormIndex] = useState(0);
 
   const router = useRouter();
   return (
