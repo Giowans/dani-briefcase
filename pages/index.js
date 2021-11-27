@@ -170,34 +170,42 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <Gallery
-          colSpan={6}
-          cols={1}
-          rows={1}
-          random={true}
-          formatedImages={images}
-        />
-        <Gallery
-          colSpan={6}
-          rows={2}
-          cols={2}
-          formatedImages={images}
-          random={true}
-        />
-        <Gallery
-          colSpan={6}
-          cols={2}
-          rows={2}
-          random={true}
-          formatedImages={images}
-        />
-        <Gallery
-          colSpan={6}
-          rows={1}
-          cols={1}
-          formatedImages={images}
-          random={true}
-        />
+        <div className="col-span-6">
+          <Gallery
+            colSpan={6}
+            cols={1}
+            rows={1}
+            random={true}
+            formatedImages={images}
+          />
+        </div>
+        <div className="col-span-6">
+          <Gallery
+            colSpan={6}
+            rows={2}
+            cols={2}
+            formatedImages={images}
+            random={true}
+          />
+        </div>
+        <div className="col-span-6">
+          <Gallery
+            colSpan={6}
+            cols={2}
+            rows={2}
+            random={true}
+            formatedImages={images}
+          />
+        </div>
+        <div className="col-span-6">
+          <Gallery
+            colSpan={6}
+            rows={1}
+            cols={1}
+            formatedImages={images}
+            random={true}
+          />
+        </div>
         <Link href="/briefcase" as="/portafolio">
           <a className="w-full col-span-12 my-20 text-center text-red-600 hover:text-red-800">
             Ver todos los proyectos

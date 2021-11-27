@@ -1,21 +1,59 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
+import { FaFacebookF } from "react-icons/fa";
+import { BsInstagram, BsWhatsapp } from "react-icons/bs";
 import Fade from "react-reveal/Fade";
+import Link from "next/link";
 
 const QuestionariePage = () => {
   const [formIndex, setFormIndex] = useState(0);
 
   const router = useRouter();
+  if (formIndex > 3) {
+    return (
+      <div className="inline-grid w-full mt-16 gap-y-8 gap-x-4 lg:grid-cols-12 md:grid-cols-12 sm:grid-cols-12 xs:grid-cols-12 lg:pt-11">
+        <h1 className="w-full col-span-8 col-start-3 text-5xl font-bold text-center text-red-600">
+          <Fade cascade>Su mensaje ha sido enviado con éxito</Fade>
+        </h1>
+        <div className="flex flex-col items-center justify-center col-span-6 col-start-4 px-8 my-12">
+          <Fade top cascade>
+            <p className="w-full my-2 text-base text-center text-gray-600">
+              ¡Gracias!
+            </p>
+            <p className="w-full text-base text-center text-gray-600">
+              Me pondré en contacto contigo en poco tiempo.
+            </p>
+            <p className="w-full text-base text-center text-gray-600">
+              Por favor, sigue explorando tenemos regalos para tí.
+            </p>
+          </Fade>
+          <Link href="/">
+            <a className="w-full col-span-12 my-12 text-center text-red-600 hover:text-red-800">
+              Seguir mirando
+            </a>
+          </Link>
+        </div>
+        <div className="col-span-12">
+          <div className="flex items-center justify-center w-screen p-4 -mx-32 bg-black">
+            <p className="text-sm text-center text-white">
+              2021 © Todos los derechos reservados: Daniel Aranda
+            </p>
+          </div>
+        </div>
+      </div>
+    );
+  }
   return (
-    <div className="grid w-full gap-y-8 gap-x-4 lg:grid-cols-12 md:grid-cols-12 sm:grid-cols-12 xs:grid-cols-12 lg:py-11">
+    <div className="inline-grid w-full gap-y-8 gap-x-4 lg:grid-cols-12 md:grid-cols-12 sm:grid-cols-12 xs:grid-cols-12 lg:pt-11">
       <h1 className="w-full col-span-12 text-5xl font-bold">
         <Fade cascade>Cuéntame sobre tu negocio</Fade>
       </h1>
       <div className="grid grid-cols-12 col-span-12 bg-gray-200 rounded-lg shadow-2xl">
-        {formIndex == 0 && (
-          <div className="grid grid-cols-8 col-span-8 col-start-2 gap-4">
+        <div className="grid grid-cols-8 col-span-8 col-start-2 gap-4">
+          {formIndex == 0 && (
             <Fade cascade>
-              <h2 className="w-full col-span-8 my-4 text-2xl text-red-600">
+              <h2 className="w-full col-span-8 mt-4 text-red-600">
                 Datos de Contacto
               </h2>
               <div className="col-span-8">
@@ -36,19 +74,20 @@ const QuestionariePage = () => {
                 <p className="w-full my-2 text-base text-gray-600">
                   Horario de atención
                 </p>
-                <input className="w-full px-2 py-3 text-black placeholder-gray-500 bg-gray-300 text-start focus:ring-4 ring-gray-400" />
+                <select className="w-full px-2 py-3 text-black placeholder-gray-500 bg-gray-300 text-start focus:ring-4 ring-gray-400">
+                  <option value="opc1">Lunes a Viernes: 10 AM a 3 PM</option>
+                  <option value="opc2">Sábado: 10 AM a 4 PM</option>
+                </select>
               </div>
               <div className="col-span-5">
                 <p className="w-full my-2 text-base text-gray-600">Domicilio</p>
                 <input className="w-full px-2 py-3 text-black placeholder-gray-500 bg-gray-300 text-start focus:ring-4 ring-gray-400" />
               </div>
             </Fade>
-          </div>
-        )}
-        {formIndex == 1 && (
-          <div className="grid grid-cols-8 col-span-8 col-start-2">
+          )}
+          {formIndex == 1 && (
             <Fade cascade>
-              <h2 className="w-full col-span-8 my-4 text-2xl text-red-600">
+              <h2 className="w-full col-span-8 mt-4 text-red-600">
                 Sobre tu empresa
               </h2>
               <div className="col-span-8">
@@ -78,25 +117,23 @@ const QuestionariePage = () => {
                   className="w-full px-2 py-3 text-black placeholder-gray-500 bg-gray-300 text-start focus:ring-4 ring-gray-400"
                 />
               </div>
-              <div className="col-span-5">
+              <div className="col-span-8">
                 <p className="w-full my-2 text-base text-gray-600">
                   ¿Donde vendes tus productos?
                 </p>
                 <input className="w-full px-2 py-3 text-black placeholder-gray-500 bg-gray-300 text-start focus:ring-4 ring-gray-400" />
               </div>
-              <div className="col-span-5">
+              <div className="col-span-8">
                 <p className="w-full my-2 text-base text-gray-600">
                   ¿Que hace único a tu producto / servicio ?
                 </p>
                 <input className="w-full px-2 py-3 text-black placeholder-gray-500 bg-gray-300 text-start focus:ring-4 ring-gray-400" />
               </div>
             </Fade>
-          </div>
-        )}
-        {formIndex == 2 && (
-          <div className="grid grid-cols-8 col-span-8 col-start-2">
+          )}
+          {formIndex == 2 && (
             <Fade cascade>
-              <h2 className="w-full col-span-8 my-4 text-2xl text-red-600">
+              <h2 className="w-full col-span-8 mt-4 text-red-600">
                 Sobre el proyecto
               </h2>
               <div className="col-span-8">
@@ -138,7 +175,7 @@ const QuestionariePage = () => {
                 <p className="w-full my-2 text-base text-gray-600">
                   ¿Cuál crees que encaja mejor con el proyecto a desarrollar?
                 </p>
-                <div className="flex flex-row items-center justify-center mt-2">
+                <div className="flex flex-row items-center justify-start mt-2">
                   <input
                     className="ml-4"
                     type="radio"
@@ -202,14 +239,10 @@ const QuestionariePage = () => {
                 </div>
               </div>
             </Fade>
-          </div>
-        )}
-        {formIndex == 3 && (
-          <div className="grid grid-cols-8 col-span-8 col-start-2">
+          )}
+          {formIndex == 3 && (
             <Fade cascade>
-              <h2 className="w-full col-span-8 my-4 text-2xl text-red-600">
-                Target
-              </h2>
+              <h2 className="w-full col-span-8 mt-4 text-red-600">Target</h2>
               <div className="col-span-8">
                 <p className="w-full my-2 text-base text-gray-600">
                   ¿Conoces a alguien que haga lo mismo que tu?
@@ -239,21 +272,91 @@ const QuestionariePage = () => {
                   className="w-full px-2 py-3 text-black placeholder-gray-500 bg-gray-300 text-start focus:ring-4 ring-gray-400"
                 />
               </div>
-              <div className="col-span-5">
+              <div className="col-span-8">
                 <p className="w-full my-2 text-base text-gray-600">
                   ¿Donde vendes tus productos?
                 </p>
                 <input className="w-full px-2 py-3 text-black placeholder-gray-500 bg-gray-300 text-start focus:ring-4 ring-gray-400" />
               </div>
-              <div className="col-span-5">
+              <div className="col-span-8">
                 <p className="w-full my-2 text-base text-gray-600">
                   ¿De qué manera crees que tus clientes ven a tu empresa?
                 </p>
                 <input className="w-full px-2 py-3 text-black placeholder-gray-500 bg-gray-300 text-start focus:ring-4 ring-gray-400" />
               </div>
             </Fade>
+          )}
+          <div className="flex flex-row items-center justify-end col-span-4 col-start-6 my-3">
+            {formIndex > 0 && (
+              <div
+                onClick={() => setFormIndex(formIndex - 1)}
+                className="self-start mr-6 text-red-600 hover:text-red-600"
+              >
+                <p className="flex flex-row items-center w-full col-span-12 my-6 text-center text-red-600 cursor-pointer hover:text-red-800">
+                  <AiOutlineLeft
+                    size="2rem"
+                    className="pt-0.5 mr-2 text-red-600 hover:text-red-800"
+                  />
+                  Anterior
+                </p>
+              </div>
+            )}
+            <div
+              onClick={() => setFormIndex(formIndex + 1)}
+              className="text-red-600 hover:text-red-600"
+            >
+              <p className="flex flex-row items-center w-full col-span-12 my-6 text-center text-red-600 cursor-pointer hover:text-red-800">
+                {formIndex == 3 ? "Enviar" : "Siguiente"}
+                <AiOutlineRight
+                  size="2rem"
+                  className="pt-0.5 mr-2 text-red-600 hover:text-red-800"
+                />
+              </p>
+            </div>
           </div>
-        )}
+        </div>
+        <div className="flex flex-col items-center justify-start w-full h-full col-span-3 ml-6 bg-red-600 rounded-lg shadow-2xl">
+          <h2 className="my-10 text-2xl text-white">Redes sociales</h2>
+          <p className="w-full my-2 text-xl text-center text-white">
+            Sigueme en mis redes
+          </p>
+          <div className="flex flex-col items-start self-center justify-between w-full px-10 mt-20 h-2/6">
+            <div className="flex flex-row items-center justify-start">
+              <div class="rounded-full p-2 flex items-center justify-center mr-2 bg-white">
+                <FaFacebookF size="0.85rem" className="text-red-600" />
+              </div>
+              <p className="flex flex-row items-center w-full text-xl text-white">
+                Daniel Aranda
+              </p>
+            </div>
+            <div className="flex flex-row items-center justify-start">
+              <div class="rounded-full p-2 flex items-center justify-center mr-2 bg-white">
+                <BsInstagram size="0.85rem" className="text-red-600" />
+              </div>
+              <p className="flex flex-row items-center w-full text-xl text-white">
+                daniaranda
+              </p>
+            </div>
+            <div className="flex flex-row items-center justify-start">
+              <div class="rounded-full p-2 flex items-center justify-center mr-2 bg-white">
+                <BsWhatsapp size="0.85rem" className="text-red-600" />
+              </div>
+              <p className="flex flex-row items-center w-full text-xl text-white">
+                +52 3326550350
+              </p>
+            </div>
+          </div>
+          <Link href="/contactMe" as="/contact">
+            <p className="w-full my-16 text-sm italic text-center text-white cursor-pointer hover:text-gray-300">
+              Ir a datos de contacto
+            </p>
+          </Link>
+        </div>
+      </div>
+      <div className="flex items-center justify-center w-screen p-4 mt-10 -mx-32 bg-black">
+        <p className="text-sm text-center text-white">
+          2021 © Todos los derechos reservados: Daniel Aranda
+        </p>
       </div>
     </div>
   );
