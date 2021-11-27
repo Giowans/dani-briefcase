@@ -45,8 +45,8 @@ const GalleryItem = ({id, className, interval, images, onSelect}) => {
   }, [show])
   
     return (
-      <Fade when = {show} key = {id}>
-        <div className = {className} onClick = {() => onSelect && onSelect(images[imageIndex].id)}>
+      <div className = {className} onClick = {() => onSelect && onSelect(images[imageIndex].id)}>
+        <Fade when = {show} key = {id}>
           <div className = 'relative flex items-center justify-center w-full h-full cursor-pointer' onMouseEnter = {() => setShowTitle(true)} onMouseLeave = {() => setShowTitle(false)}>
             <Image
               priority
@@ -60,8 +60,8 @@ const GalleryItem = ({id, className, interval, images, onSelect}) => {
               <h2 className = 'self-center w-full text-center text-white'>{[images[imageIndex].title]}</h2>
             </div>
           </div>
-        </div>
-      </Fade>
+        </Fade>
+      </div>
     )
 }
 
