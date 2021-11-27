@@ -144,7 +144,12 @@ const AboutMePage = () => {
           </LightSpeed>
         </h2>
       </div>
-      <Carrousel itemsToShow={3} items={inspirers} />
+      <Carrousel
+        imageStyles="h-76"
+        className="h-80"
+        itemsToShow={3}
+        items={inspirers}
+      />
       <Divider className="my-10" />
       <div className="col-span-7 col-start-6 my-12">
         <h2 className="text-red-600">Experiencia</h2>

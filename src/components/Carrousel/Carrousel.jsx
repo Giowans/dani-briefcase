@@ -7,45 +7,26 @@ import Image from 'next/image';
 const Carrousel = ({className, itemsToShow = 1, onClickImage, autoPlay, items, imageStyles}) => {
 
   // State
-  const [carIndex, setCarIndex] = useState(0);
   const [auto, setAuto] = useState(autoPlay);
   const [carrouselItems, setCarrouselItems] = useState([...items]);
-  const [direction, setDirection] = useState('');
+  
+  const moveItems = (direction) => {
+    const temp = [...carrouselItems];
 
-  const updateItems = () => {
-    console.log(direction, carIndex, (carIndex+(itemsToShow-1)));
+    if (direction === 'right') {
+      temp.push(temp.shift());
+    } else {
+      temp.unshift(temp.pop());
+    }
 
-    let aux = carrouselItems;
-    if(direction === 'right')
-    {
-      aux.push(aux.shift());
-    }
-    if(direction === 'left')
-    {
-      aux.unshift(aux.pop())
-    }
-    setCarrouselItems(aux);
-    console.log('aux: ', aux, 'carrousel: ', carrouselItems);
+    setCarrouselItems([...temp]);
   }
-
-  useEffect(() => {
-    updateItems();
-  }, [carIndex])
-
-  useEffect(() => {
-    setCarrouselItems(items)
-  }, [items]);
 
 
   return (
     <div className = {'w-screen inline-grid gap-x-2 grid-cols-12 max-h-96 -mx-32 px-4 '+className}>
       <div className = 'flex items-center justify-center' >
-        <AiOutlineLeft onClick = {() => {
-        setDirection('left')
-        let newIndex = carIndex;
-        setCarIndex(newIndex+1)
-        console.log(carIndex)
-      }} size = {'3.2rem'} className = 'pl-4 text-gray-600 duration-200 ease-out cursor-pointer transition-color hover:text-red-600' />
+        <AiOutlineLeft onClick = {() => moveItems('left')} size = {'3.2rem'} className = 'pl-4 text-gray-600 duration-200 ease-out cursor-pointer transition-color hover:text-red-600' />
       </div>
       <div className = 'grid grid-cols-12 col-span-10 gap-4 overflow-hidden'>
         {carrouselItems.map((item, index) => {
@@ -73,12 +54,7 @@ const Carrousel = ({className, itemsToShow = 1, onClickImage, autoPlay, items, i
         })}
       </div>
       <div className = 'flex items-center justify-center' >
-        <AiOutlineRight onClick = {() => {
-        setDirection('right')
-        let newIndex = carIndex;
-        setCarIndex(newIndex-1)
-        console.log(carIndex)
-      }} size = {'3.2rem'} className = 'pr-4 text-gray-600 transition duration-200 ease-out cursor-pointer hover:text-red-600' />
+        <AiOutlineRight onClick = {() => moveItems('right')} size = {'3.2rem'} className = 'pr-4 text-gray-600 transition duration-200 ease-out cursor-pointer hover:text-red-600' />
       </div>
     </div>
   )
