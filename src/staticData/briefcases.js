@@ -995,23 +995,27 @@ export const briefcases = [
       {
         title: "Personajes diseños",
         path: "/images/briefcase/briefcases/6/g2.jpg",
+        size: 1,
       },
       {
         title: "Contraportada del libro",
         path: "/images/briefcase/briefcases/6/g3.jpg",
-        size: 2,
+        size: 1,
       },
       {
         title: "Ilustración 2.0",
         path: "/images/briefcase/briefcases/6/g4.jpg",
+        size: 1,
       },
       {
         title: "Interiores 4.0",
         path: "/images/briefcase/briefcases/6/g5.jpg",
+        size: 1,
       },
       {
         title: "Logotipo o título del libro,",
         path: "/images/briefcase/briefcases/6/g6.jpg",
+        size: 1,
       },
     ],
   },
