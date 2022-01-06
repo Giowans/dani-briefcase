@@ -34,7 +34,7 @@ const Gallery = ({colSpan = 12, rows = 1, cols = 1, formatedImages, itemConfig, 
 
   const makeGalleryItemFormat = () => {
     const totalChilds = (rows * cols);
-    const itemClassName = `col-span-${Math.round(12/cols)}`;
+    const itemClassName = `h-fit col-span-${Math.round(12/cols)}`;
     var itemsOfGallery = [];
     var imagesToRest = [...formatedImages];
 
@@ -88,7 +88,7 @@ const Gallery = ({colSpan = 12, rows = 1, cols = 1, formatedImages, itemConfig, 
 
 
   return (
-    <div className = {`mt-9 flex grid flex-col gap-4 lg:grid-cols-12 lg:col-span-${colSpan} md:col-span-12 sm:col-span-12 xs:col-span-12 md:grid-cols-12 xs:grid-cols-12 sm:grid-cols-12 w-full h-96`}>
+    <div className = {`lg:mt-9 flex grid flex-col gap-4 md:col-span-${colSpan} grid-cols-12 col-span-12 w-full h-fit`}>
       {galleryItems.map((item, index) => {
         return (
           <GalleryItem className = {item.className} id = {index} interval = {item.interval} images = {item.images} onSelect = {(id) => router.push('/briefcase/' + id)} />

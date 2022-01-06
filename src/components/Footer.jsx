@@ -36,7 +36,7 @@ const Footer = ({extended = false, className, animationConfig}) => {
       <Fade {...animationConfig}>
         <div className = {'col-span-12 grid-cols-12 grid '+className}>
           <h1 className = 'w-full col-span-12 my-10 text-4xl font-bold'>¿Quieres platicar de algún proyecto?</h1>
-          <div className = 'flex flex-col items-center justify-start col-span-3'>
+          <div className = 'flex flex-col items-center justify-start col-span-6 lg:col-span-3'>
             <p className="w-full mt-4 text-sm text-red-600">
               Email
             </p>
@@ -50,7 +50,7 @@ const Footer = ({extended = false, className, animationConfig}) => {
               +52 33 2655 0350
             </a>
           </div>
-          <div className = 'flex flex-col items-center justify-start col-span-2'>
+          <div className = 'flex flex-col items-center justify-start col-span-6 text-center md:text-left lg:col-span-2'>
             <p className="w-full mt-4 text-sm text-red-600">
               Continuar mirando
             </p>
@@ -73,22 +73,22 @@ const Footer = ({extended = false, className, animationConfig}) => {
               <a className = {'w-full mt-1 text-sm text-gray-600 hover:text-black'}>Cuestionario</a>
             </Link>
           </div>
-          <div className = 'flex flex-col items-center justify-start col-span-5 px-8'>
-            <h3 className = 'w-full mt-4 text-3xl font-bold text-red-600 text-start'>Cuestionario de proyecto</h3>
-            <p className="w-full mt-4 text-sm text-gray-600">
+          <div className = 'flex flex-col items-center justify-start col-span-12 lg:px-8 lg:col-span-5'>
+            <h3 className = 'w-full mt-12 text-3xl font-bold text-center text-red-600 lg:mt-4 md:text-left'>Cuestionario de proyecto</h3>
+            <p className="w-full mt-4 text-sm text-gray-600 md:self-start md:w-1/2 lg:w-full">
               ¿Quisieras contestar un pequeño cuestionario?
               Me ayudara a entender mejor tu proyecto y podremos
               entablar una mayor comunicación.
             </p>
             <Link href="/questionarie" as="/questionario">
-              <a className="w-full col-span-12 my-4 text-red-600 hover:text-red-800">
+              <a className="w-full col-span-12 my-4 text-center text-red-600 lg:text-left hover:text-red-800">
                 Ir a cuestionario
               </a>
             </Link>
           </div>  
         </div>
         <div className = 'col-span-12 mt-28'>
-          <div className = 'flex items-center justify-center w-screen p-4 -mx-32 bg-red-600'>
+          <div className = 'flex items-center justify-center w-screen p-4 -mx-12 bg-red-600 lg:-mx-32'>
             <div className = 'flex flex-row justify-between w-40'>
               <a href = 'https://www.facebook.com/daniel.aranda.543'>
                 <FaFacebookF size = '1.25rem' color = 'white'/>
@@ -101,7 +101,7 @@ const Footer = ({extended = false, className, animationConfig}) => {
               </a>
             </div>
           </div>
-          <div className = 'flex items-center justify-center w-screen p-4 -mx-32 bg-black'>
+          <div className = 'flex items-center justify-center w-screen p-4 -mx-12 bg-black lg:-mx-32'>
             <p className = 'text-sm text-center text-white'>
               2021 © Todos los derechos reservados: Daniel Aranda
             </p>

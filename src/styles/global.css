@@ -48,10 +48,6 @@
   grid-column: span 12 / span 12;
 }
 
-.gap-4 {
-  gap: 1 rem;
-}
-
 ul {
   list-style: none;
 }

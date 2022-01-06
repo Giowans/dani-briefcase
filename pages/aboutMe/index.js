@@ -14,67 +14,79 @@ const AboutMePage = () => {
   const router = useRouter();
   const [isCollapsed, setIsCollapsed] = useState(false);
   return (
-    <div className="grid w-full h-full gap-x-4 gap-y-1 lg:grid-cols-12 md:grid-cols-12 sm:grid-cols-12 xs:grid-cols-12 lg:py-11">
-      <div className="col-span-4">
-        <h1 className="w-full col-span-12 text-4xl font-bold">
+    <div className="grid w-full h-full grid-cols-12 gap-x-4 gap-y-1 lg:py-11">
+      <div className="col-span-12 mt-4 md:col-span-4 lg:mt-0">
+        <h1 className="w-full col-span-12 text-3xl font-bold text-center md:text-4xl md:text-left">
           <LightSpeed left cascade>
             Sobre mi
           </LightSpeed>
         </h1>
       </div>
-      <Divider className="my-8" />
-      <YoutubeEmbed className="h-screen col-span-12" embedId="cPfABz95g2M" />
-      <div className="col-span-5">
+      <Divider className="my-4 lg:my-8" />
+      <YoutubeEmbed
+        className="col-span-12 h-52 md:h-screen"
+        embedId="cPfABz95g2M"
+      />
+      <div className="col-span-12 lg:col-span-5">
+        <h2 className="block w-full mt-8 -mb-2 text-center lg:hidden">
+          <Fade cascade>
+            Hola, soy <font className="text-red-600">Daniel</font>
+          </Fade>
+        </h2>
         <Image width={800} height={1200} src="/images/aboutMe/me.png" />
       </div>
-      <div className="col-span-7 px-2 py-6">
-        <h2 className="w-full text-left">
-          Hola, soy <font className="text-red-600">Daniel</font>
-        </h2>
-        <p className="mt-4 text-sm text-gray-600">
-          Mi nombre es Erick Daniel Aranda Palomera, diseñador gráfico. Desde
-          pequeño me consideré amante de la música, el arte, y sin saberlo, del
-          diseño. Conocí el diseño gráfico cuando entre a la preparatoria y se
-          nos dio a elegir entre 4 carreras técnicas, por lo que escogí diseño
-          gráfico sin saber a ciencia cierta de que se trataba, poco a poco
-          encontré una pasión por esta carrera y todo lo relacionado a ella.
-        </p>
-        <p className="mt-4 text-sm text-gray-600">
-          Siempre tuve más exigencias, por ser el mayor, gracias a eso he
-          desarrollado carácter, además de honestidad por parte de mis padres,
-          que siempre velan por lo que es correcto, uno de los pasatiempos que
-          más disfrutaba era sin lugar a dudas el poder dibujar y crear arte, me
-          encantaba visitar museos y ver las pinturas, esculturas o
-          representaciones de otros artistas, en verdad me veía como un artista.
-        </p>
-        <p className="mt-4 text-sm text-gray-600">
-          Finalizando mi preparatoria, decidí tomar un semestre sabático,
-          trabajando como diseñador en una empresa de impresión y tuve el placer
-          de conocer más de esta rama y tome la decisión de continuar con mis
-          estudios a nivel superior entrando a la licenciatura de diseño gráfico
-          de la Universidad de Guadalajara.
-        </p>
-        <p className="mt-4 text-sm text-gray-600">
-          En el año 2018 ingreso a la universidad con 19 años de edad, y
-          comienzo a adentrarme al mundo del diseño, las artes gráficas y todo
-          aquello con lo que ya me había familiarizado a lo largo de mi vida,
-          comencé a entender el diseño como un trabajo formal, y cambio mi
-          perspectiva sobre el mismo, me enamoré del diseño gráfico y todo lo
-          que lo rodea.
-        </p>
-        <p className="mt-4 text-sm text-gray-600">
-          Me gustaría poder hacer un cambio en el mundo, y dar a la sociedad
-          algo más que solo publicidad, se que el mundo necesita del diseño,
-          pero es bueno enseñar diseño de la manera correcta.
-        </p>
-        <p className="mt-4 text-sm text-gray-600">
-          Soy un apasionado del diseño y construcción de marcas, además del
-          diseño editorial enfocado a libros infantiles, he trabajado con
-          distintas empresas que necesitan un diseño de logotipo de la mano de
-          la empresa en la que colaboro actualmente.
-        </p>
-      </div>
-      <div className="col-span-7 col-start-6 my-12">
+      <Fade bottom cascade>
+        <div className="col-span-12 px-2 py-6 lg:col-span-7">
+          <h2 className="hidden w-full text-left lg:block">
+            Hola, soy <font className="text-red-600">Daniel</font>
+          </h2>
+          <p className="mt-4 text-sm text-gray-600">
+            Mi nombre es Erick Daniel Aranda Palomera, diseñador gráfico. Desde
+            pequeño me consideré amante de la música, el arte, y sin saberlo,
+            del diseño. Conocí el diseño gráfico cuando entre a la preparatoria
+            y se nos dio a elegir entre 4 carreras técnicas, por lo que escogí
+            diseño gráfico sin saber a ciencia cierta de que se trataba, poco a
+            poco encontré una pasión por esta carrera y todo lo relacionado a
+            ella.
+          </p>
+          <p className="mt-4 text-sm text-gray-600">
+            Siempre tuve más exigencias, por ser el mayor, gracias a eso he
+            desarrollado carácter, además de honestidad por parte de mis padres,
+            que siempre velan por lo que es correcto, uno de los pasatiempos que
+            más disfrutaba era sin lugar a dudas el poder dibujar y crear arte,
+            me encantaba visitar museos y ver las pinturas, esculturas o
+            representaciones de otros artistas, en verdad me veía como un
+            artista.
+          </p>
+          <p className="mt-4 text-sm text-gray-600">
+            Finalizando mi preparatoria, decidí tomar un semestre sabático,
+            trabajando como diseñador en una empresa de impresión y tuve el
+            placer de conocer más de esta rama y tome la decisión de continuar
+            con mis estudios a nivel superior entrando a la licenciatura de
+            diseño gráfico de la Universidad de Guadalajara.
+          </p>
+          <p className="mt-4 text-sm text-gray-600">
+            En el año 2018 ingreso a la universidad con 19 años de edad, y
+            comienzo a adentrarme al mundo del diseño, las artes gráficas y todo
+            aquello con lo que ya me había familiarizado a lo largo de mi vida,
+            comencé a entender el diseño como un trabajo formal, y cambio mi
+            perspectiva sobre el mismo, me enamoré del diseño gráfico y todo lo
+            que lo rodea.
+          </p>
+          <p className="mt-4 text-sm text-gray-600">
+            Me gustaría poder hacer un cambio en el mundo, y dar a la sociedad
+            algo más que solo publicidad, se que el mundo necesita del diseño,
+            pero es bueno enseñar diseño de la manera correcta.
+          </p>
+          <p className="mt-4 text-sm text-gray-600">
+            Soy un apasionado del diseño y construcción de marcas, además del
+            diseño editorial enfocado a libros infantiles, he trabajado con
+            distintas empresas que necesitan un diseño de logotipo de la mano de
+            la empresa en la que colaboro actualmente.
+          </p>
+        </div>
+      </Fade>
+      <div className="col-span-12 my-12 lg:col-span-7 lg:col-start-6">
         <h2 className="text-red-600">Experiencia</h2>
         <ul className="pl-4">
           <li className="mt-2 text-sm italic text-gray-600">
@@ -99,15 +111,20 @@ const AboutMePage = () => {
           </li>
         </ul>
       </div>
-      <div className="col-span-5">
+      <div className="col-span-12 lg:col-span-5">
+        <h2 className="block w-full my-3 text-center text-red-600 lg:hidden md:text-left">
+          Intereses
+        </h2>
         <Image width={685} height={512} src="/images/aboutMe/interest.png" />
-        <p className="mt-3 text-sm italic text-left text-gray-600">
+        <p className="mt-3 text-sm italic text-center text-gray-600 md:text-left">
           Foto de presentación para el proyecto de diseño de sistemas de
           identidad para el Museo interpretativo del Paisaje Agavero del Arenal.{" "}
         </p>
       </div>
-      <div className="col-span-7 px-2 py-2">
-        <h2 className="w-full text-left text-red-600">Intereses</h2>
+      <div className="col-span-12 px-2 py-2 lg:col-span-7">
+        <h2 className="hidden w-full text-left text-red-600 lg:block">
+          Intereses
+        </h2>
         <p className="mt-4 text-sm text-left text-gray-600">
           Me apasiono por el mundo de las marcas, sin embargo me gusta
           relacionarme con las demás áreas del diseño, me considero muy bueno en
@@ -131,14 +148,15 @@ const AboutMePage = () => {
           mí, educando a los demás sobre el diseño y seguir aportando a mi
           disciplina para que no se estanque.
         </p>
-        <p className="w-8/12 mt-2 text-base italic font-bold text-black">
+
+        <p className="w-full mt-10 text-base italic font-bold text-center text-black lg:mt-2 lg:w-8/12">
           "La gráfica <font className="text-red-600">popular mexicana</font> es
           algo que me encanta mirar, encuentro encantador el diseño mexicano"
         </p>
       </div>
       <Divider className="my-10" />
       <div className="col-span-12 py-6">
-        <h2 className="flex flex-row w-full text-left">
+        <h2 className="flex flex-row items-center justify-center w-full text-center md:justify-left md:text-left">
           <LightSpeed right cascade>
             Los que <font className="text-red-600">me inspiran</font>
           </LightSpeed>
@@ -146,13 +164,19 @@ const AboutMePage = () => {
       </div>
       <Carrousel
         imageStyles="h-76"
-        className="h-80"
+        className="hidden h-80 lg:inline-grid"
         itemsToShow={3}
         items={inspirers}
       />
+      <Carrousel
+        imageStyles="h-fit"
+        className="h-72 lg:hidden"
+        itemsToShow={1}
+        items={inspirers}
+      />
       <Divider className="my-10" />
-      <div className="col-span-7 col-start-6 my-12">
-        <h2 className="text-red-600">Experiencia</h2>
+      <div className="col-span-12 my-12 lg:col-start-6 lg:col-span-7">
+        <h2 className="text-center text-red-600 md-text-left">Experiencia</h2>
         <p className="mt-4 text-sm text-left text-gray-600">
           Creo firmemente que el diseño como medio de comunicación real, es
           factible, el diseño es capaz de incitar movimientos, de hablar con los
@@ -182,8 +206,8 @@ const AboutMePage = () => {
           que nos competen.
         </p>
         <p className="w-8/12 my-8 text-base italic font-bold text-black">
-          "Me <font className="text-red-600">apasiono</font> por lo que hago por
-          eso <font className="text-red-600">siempre</font> intento hacerlo
+          "Me <font className="text-red-600">apasiono</font> por lo que hago,
+          por eso <font className="text-red-600">siempre</font> intento hacerlo
           bien"
         </p>
         <p className="w-10/12 my-8 text-base italic font-bold text-black">
@@ -194,16 +218,21 @@ const AboutMePage = () => {
         </p>
       </div>
       <Divider className="my-4" />
-      <div className="col-span-5 pt-10">
-        <Image
-          layout="responsive"
-          width={685}
-          height={574}
-          src="/images/aboutMe/me-guitar.png"
-        />
+      <div className="col-span-12 pt-10 lg:col-span-5">
+        <h2 className="block w-full text-center lg:hidden">
+          Mis <font className="text-red-600">pasatiempos</font>
+        </h2>
+        <Fade right>
+          <Image
+            layout="responsive"
+            width={685}
+            height={574}
+            src="/images/aboutMe/me-guitar.gif"
+          />
+        </Fade>
       </div>
-      <div className="col-span-7 px-2 py-6">
-        <h2 className="w-full text-left">
+      <div className="col-span-12 px-2 py-6 lg:col-span-7">
+        <h2 className="hidden w-full text-left lg:block">
           Mis <font className="text-red-600">pasatiempos</font>
         </h2>
         <p className="mt-4 text-sm text-gray-600">
@@ -261,7 +290,7 @@ const AboutMePage = () => {
         </Fade>
         <div className="col-span-7 col-start-6"></div>
         <div onClick={() => setIsCollapsed(!isCollapsed)}>
-          <a className="flex flex-row items-center w-full col-span-12 my-6 text-center text-red-600 cursor-pointer hover:text-red-800">
+          <a className="flex flex-row items-center justify-center w-full col-span-12 my-6 text-center text-red-600 cursor-pointer lg:justify-start hover:text-red-800">
             {isCollapsed ? "Ocultar" : "Ver más"}{" "}
             {isCollapsed ? (
               <AiOutlineUp className="pt-0.5 ml-2 text-red-600 hover:text-red-800" />
@@ -272,7 +301,10 @@ const AboutMePage = () => {
         </div>
       </div>
       <Divider className="my-16" />
-      <div className="col-span-5">
+      <div className="col-span-12 lg:col-span-5">
+        <h2 className="block w-full my-2 text-center text-red-600 lg:hidden">
+          Últimamente
+        </h2>
         <Image
           layout="responsive"
           width={686}
@@ -280,16 +312,10 @@ const AboutMePage = () => {
           src="/images/aboutMe/ftf.png"
         />
       </div>
-      <div className="col-span-7 px-2">
-        <h2 className="w-full text-left text-red-600">Últimamente</h2>
-        <p className="mt-4 text-sm text-gray-600">
-          Mi nombre es Erick Daniel Aranda Palomera, diseñador gráfico. Desde
-          pequeño me consideré amante de la música, el arte, y sin saberlo, del
-          diseño. Conocí el diseño gráfico cuando entre a la preparatoria y se
-          nos dio a elegir entre 4 carreras técnicas, por lo que escogí diseño
-          gráfico sin saber a ciencia cierta de que se trataba, poco a poco
-          encontré una pasión por esta carrera y todo lo relacionado a ella.
-        </p>
+      <div className="col-span-12 px-2 lg:col-span-7">
+        <h2 className="hidden w-full text-left text-red-600 lg:block">
+          Últimamente
+        </h2>
         <p className="mt-4 text-sm text-gray-600">
           El mundo del diseño de contenido Social Media, lo tomo directamente
           del trabajo en el que me encuentro. Soy diseñador gráfico en un
@@ -327,7 +353,7 @@ const AboutMePage = () => {
         <a
           href="/documents/Fanzine.pdf"
           download="Fanzine.pdf"
-          className="flex flex-row items-center w-full col-span-12 my-6 text-center text-red-600 cursor-pointer hover:text-red-800"
+          className="flex flex-row items-center justify-center w-full col-span-12 my-6 text-center text-red-600 cursor-pointer md:justify-start hover:text-red-800"
         >
           Descargar fanzine
         </a>

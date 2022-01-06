@@ -35,7 +35,7 @@ const Review = ({format = 'mini', index, data, className, key, animationConfig})
     {
       return (
         <Flip {...animationConfig[0]}>
-          <div className = {'col-span-4 h-96 '+className} key = {key}>
+          <div className = {'col-span-12 md:col-span-6 lg:col-span-4 h-96 '+className} key = {key}>
             <h4 className = 'w-full h-16 text-xl font-bold'>{data.title || 'Sin titulo'}</h4>
             <p className="w-full my-4 text-sm text-gray-600">
               {data.type || 'No especificado'}
@@ -45,7 +45,7 @@ const Review = ({format = 'mini', index, data, className, key, animationConfig})
               {data.description || 'Sin descripción'}
             </p>
             <Link href="/thinkers" as="/pensadores">
-              <a className="w-full mt-6 hover:text-red-600">
+              <a className="w-full mt-6 text-center md:text-left hover:text-red-600">
                 Ver más
               </a>
             </Link>

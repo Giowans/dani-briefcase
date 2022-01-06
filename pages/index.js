@@ -4,46 +4,8 @@ import Gallery from "../src/components/Gallery/Gallery";
 import Divider from "../src/components/Divider/Divider";
 import Review from "../src/components/Review/Review";
 import Footer from "../src/components/Footer";
-
-const images = [
-  {
-    id: 1,
-    path: "/images/w1.png",
-    title: "Corazón Contento",
-  },
-  {
-    id: 2,
-    path: "/images/w2.png",
-    title: "Los Bunkers Identidad Ep",
-  },
-  { id: 3, path: "/images/w3.png", title: "Séptima Taquilla" },
-  {
-    id: 10,
-    path: "/images/w4.png",
-    title: "UNISUN",
-  },
-  {
-    id: 12,
-    path: "/images/w5.png",
-    title: "Neon Eyes",
-  },
-  {
-    id: 5,
-    path: "/images/w6.png",
-    title: "UVIC",
-  },
-  {
-    id: 7,
-    path: "/images/w7.png",
-    title: "Joys",
-  },
-  {
-    id: 9,
-    path: "/images/w8.png",
-    title: "MIPAA",
-  },
-  { id: 11, path: "/images/w9.png", title: "Blacky el diablito con suerte" },
-];
+import Fade from "react-reveal/Fade";
+import { briefcases } from "../src/staticData/briefcases";
 
 const thinkers = [
   {
@@ -98,19 +60,27 @@ const thinkers = [
 export default function Home() {
   return (
     <>
-      <div className="w-screen -mx-32">
-        <Image width={2100} height={985} src="/images/banner.png" />
-      </div>
-      <div className="grid w-full h-full gap-4 lg:grid-cols-12 md:grid-cols-12 sm:grid-cols-12 xs:grid-cols-12 lg:py-11">
-        <div className="flex flex-col items-center justify-center lg:col-span-5 md:col-span-6 sm:col-span-6">
-          <Image src="/images/1.png" width={685} height={917} />
+      <Fade left>
+        <div className="w-screen -mx-12 lg:-mx-32">
+          <Image width={2100} height={985} src="/images/banner.png" />
+        </div>
+      </Fade>
+      <div className="grid w-full h-full grid-cols-12 gap-4 lg:py-11">
+        <div className="flex flex-col items-center justify-center col-span-12 lg:col-span-5">
+          <h2 className="block w-full p-8 mt-16 lg:hidden">Hola, soy Daniel</h2>
+          <Image
+            layout="intrinsic"
+            src="/images/1.png"
+            width={685}
+            height={917}
+          />
           <p className="mt-5 text-xs italic font-light text-gray-600">
             Este soy yo cuando ingrese a la universidad de Guadalajara a
             estudiar diseño gráfico.
           </p>
         </div>
-        <div className="flex flex-col items-center px-8 pl-8 lg:col-span-7 md:col-span-12 sm:col-span-12">
-          <h2 className="w-full text-left">Hola, soy Daniel</h2>
+        <div className="flex flex-col items-center col-span-12 px-8 pl-8 lg:col-span-7">
+          <h2 className="hidden w-full text-left lg:block">Hola, soy Daniel</h2>
           <p className="mt-4 text-sm text-gray-600">
             Mi nombre es Erick Daniel Aranda Palomera, diseñador gráfico. Desde
             pequeño me considere amante de la música, el arte, y sin saberlo,
@@ -159,8 +129,8 @@ export default function Home() {
           </Link>
         </div>
         <Divider className="my-10" />
-        <div className="grid lg:grid-cols-12 md:grid-cols-12 sm:grid-cols-12 xs:grid-cols-12 lg:col-span-12 md:col-span-12 sm:col-span-12">
-          <div className="flex flex-col items-center lg:col-span-6 md:col-span-6 sm:col-span-12">
+        <div className="grid grid-cols-12 col-span-12">
+          <div className="flex flex-col items-center col-span-12 md:col-span-6">
             <h2 className="w-full text-red-600">Proyectos</h2>
             <p className="mt-4 text-sm text-gray-600 lg:col-span-6">
               Cada proyecto es único, por lo tanto todos agregan algo a mi
@@ -170,39 +140,39 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <div className="col-span-6">
+        <div className="col-span-12 md:col-span-6">
           <Gallery
             colSpan={6}
             cols={1}
             rows={1}
             random={true}
-            formatedImages={images}
+            formatedImages={briefcases}
           />
         </div>
-        <div className="col-span-6">
+        <div className="col-span-12 md:col-span-6">
           <Gallery
             colSpan={6}
             rows={2}
             cols={2}
-            formatedImages={images}
+            formatedImages={briefcases}
             random={true}
           />
         </div>
-        <div className="col-span-6">
+        <div className="col-span-12 md:col-span-6">
           <Gallery
             colSpan={6}
             cols={2}
             rows={2}
             random={true}
-            formatedImages={images}
+            formatedImages={briefcases}
           />
         </div>
-        <div className="col-span-6">
+        <div className="col-span-12 md:col-span-6">
           <Gallery
             colSpan={6}
             rows={1}
             cols={1}
-            formatedImages={images}
+            formatedImages={briefcases}
             random={true}
           />
         </div>
@@ -224,18 +194,18 @@ export default function Home() {
               className="h-screen mt-8"
               data={thinker}
               key={`${thinker.title}-${index}`}
-              animationConfig={[{ top: true, cascade: true }]}
+              animationConfig={[{ left: true, cascade: true }]}
             />
           );
         })}
 
         <Link href="/thinkers" as="/pensadores">
-          <a className="w-full col-span-12 my-6 text-center text-red-600 hover:text-red-800">
+          <a className="w-full col-span-12 my-16 text-center text-red-600 md:my-6 hover:text-red-800">
             Ver todas las reseñas
           </a>
         </Link>
 
-        <Divider className="mt-20 mb-0" />
+        <Divider className="mt-10 mb-0 md:mt-20" />
 
         <Footer extended animationConfig={{ cascade: true }} />
       </div>

@@ -1141,6 +1141,7 @@ export const talents = [
     title: "Social Media",
   },
 ];
+
 export const creativeProcess = [
   {
     title: "Conocer el tipo de proyecto a realizar",
