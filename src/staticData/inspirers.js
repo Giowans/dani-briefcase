@@ -88,7 +88,7 @@ export const inspirers = [
     className: "",
     recomendation: `Si te interesa conocer el trabajo que Isaac esta haciendo puedes visitar el siguiente link.
 
-    https://www.facebook.com/joseluishdzchepe/posts/10222651349066428?notif_id=1635390719339697&notif_t=feedback_reaction_generic_tagged&ref=notif`,
+    https://www.facebook.com/joseluishdzchepe/`,
     path: "/images/inspirers/i3.png",
     works: [
       {
