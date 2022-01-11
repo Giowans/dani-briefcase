@@ -57,13 +57,8 @@ const Review = ({format = 'mini', index, data, className, key, animationConfig})
 
     if(format === 'article')
     {
-      let opc = [
-        { left: true, top: true, cascade: true },
-        { right: true, top: true, cascade: true },
-      ];
-
       return (
-        <Rotate {...opc[(index + 1) % 2 == 0 ? 1 : 0]}>
+        <Rotate {...animationConfig[(index + 1) % 2 == 0 ? 1 : 0]}>
           <div className = 'col-span-12 mt-10 lg:col-span-6'>
             <h3 className = 'my-2 text-2xl font-bold text-red-600'>{data.type}</h3>
             <h4 className = 'w-full my-10 text-xl font-bold lg:w-7/12'>{data.title || 'Sin titulo'}</h4>
