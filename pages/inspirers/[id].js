@@ -60,7 +60,7 @@ const InspirersPage = ({ data, ...props }) => {
             <Image width={826} height={654} src={data.path} />
           </div>
         </Rotate>
-        <div className="hidden col-span-12 lg:block">
+        <div className="hidden col-span-6 lg:block">
           <Rotate top right cascade>
             <div className="px-4 py-4 lg:col-span-6 h-fit lg:h-96">
               <h4 className="hidden w-full mt-2 text-xl font-bold text-red-600 lg:block">
