@@ -53,9 +53,11 @@ const InspirersPage = ({ data, ...props }) => {
             {data.title || "Sin titulo"}
           </h4>
           <div
-            className={"col-span-12 lg:col-span-6 h-72 lg:h-full " + data.color}
+            className={
+              "col-span-12 lg:col-span-6 h-fit lg:h-full " + data.color
+            }
           >
-            <Image layout="fill" src={data.path} />
+            <Image width={826} height={654} src={data.path} />
           </div>
         </Rotate>
         <div className="hidden col-span-12 lg:block">
