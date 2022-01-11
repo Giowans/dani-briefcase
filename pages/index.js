@@ -79,7 +79,7 @@ export default function Home() {
             estudiar diseño gráfico.
           </p>
         </div>
-        <div className="flex flex-col items-center col-span-12 px-8 pl-8 lg:col-span-7">
+        <div className="flex flex-col items-center col-span-12 lg:pl-8 lg:px-8 lg:col-span-7">
           <h2 className="hidden w-full text-left lg:block">Hola, soy Daniel</h2>
           <p className="mt-4 text-sm text-gray-600">
             Mi nombre es Erick Daniel Aranda Palomera, diseñador gráfico. Desde

@@ -10,7 +10,7 @@ const Footer = ({extended = false, className, animationConfig}) => {
       return (
         <Fade {...animationConfig}>
           <div className = {'col-span-12 mt-28 '+className}>
-            <div className = 'flex items-center justify-center w-screen p-4 -mx-32 bg-red-600'>
+            <div className = 'flex items-center justify-center w-screen p-4 -mx-12 bg-red-600 lg:-mx-32'>
               <div className = 'flex flex-row justify-between w-40'>
                 <a href = 'https://www.facebook.com/daniel.aranda.543'>
                   <FaFacebookF size = '1.25rem' color = 'white'/>
@@ -23,7 +23,7 @@ const Footer = ({extended = false, className, animationConfig}) => {
                 </a>
               </div>
             </div>
-            <div className = 'flex items-center justify-center w-screen p-4 -mx-32 bg-black'>
+            <div className = 'flex items-center justify-center w-screen p-4 -mx-12 bg-black lg:-mx-32'>
               <p className = 'text-sm text-center text-white'>
                 2021 © Todos los derechos reservados: Daniel Aranda
               </p>

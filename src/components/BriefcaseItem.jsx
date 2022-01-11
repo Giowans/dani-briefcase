@@ -29,7 +29,7 @@ const BriefcaseItem = ({briefcaseData, className, key, minimalist = false, onSel
       return (
         <Bounce where = {showTitle}>
           <div className = {className} key = {key} onClick = {() => onSelect && onSelect()}>
-            <div className = 'flex flex-col items-center justify-center w-full h-full duration-200 ease-out cursor-pointer hover:opacity-80'>
+            <div className = 'flex flex-col items-center justify-center w-full duration-200 ease-out cursor-pointer h-fit hover:opacity-80'>
               <Image
                 width = {1300}
                 height = {1000}
@@ -56,11 +56,11 @@ const BriefcaseItem = ({briefcaseData, className, key, minimalist = false, onSel
               src = {path}
               alt = {title + '-' + path}
             />
-            <div className = {'flex flex-col justify-start items-start w-full h-full absolute w-full h-full p-8 bg-red-600 transition duration-200 ' + (showTitle ? ' opacity-80' : ' opacity-0')}>
-              <h2 className = 'self-start w-full text-white text-start'>{title}</h2>
+            <div className = {'flex flex-col justify-start items-start w-full h-full absolute w-full h-full p-2 lg:p-8 bg-red-600 transition duration-200 ' + (showTitle ? ' opacity-80' : ' opacity-0')}>
+              <h2 className = 'self-start w-full text-base text-white text-start lg:text-2xl'>{title}</h2>
               {detail && <h2 className = 'self-start w-full mt-2 text-base text-white text-start'>{detail}</h2>}
-              {year && <p className = 'mt-2 text-white'>{year}</p>}
-              {type && <p className = 'text-white'>{type}</p>}
+              {year && <p className = 'mt-2 text-sm text-white lg:text-base'>{year}</p>}
+              {type && <p className = 'text-sm text-white lg:text-base'>{type}</p>}
             </div>
           </div>
         </div>

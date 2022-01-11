@@ -64,9 +64,9 @@ const Review = ({format = 'mini', index, data, className, key, animationConfig})
 
       return (
         <Rotate {...opc[(index + 1) % 2 == 0 ? 1 : 0]}>
-          <div className = 'col-span-6 mt-10'>
+          <div className = 'col-span-12 mt-10 lg:col-span-6'>
             <h3 className = 'my-2 text-2xl font-bold text-red-600'>{data.type}</h3>
-            <h4 className = 'w-7/12 my-10 text-xl font-bold'>{data.title || 'Sin titulo'}</h4>
+            <h4 className = 'w-full my-10 text-xl font-bold lg:w-7/12'>{data.title || 'Sin titulo'}</h4>
             <p className="w-full h-32 pr-10 my-4 overflow-y-scroll text-sm text-gray-600">
               {data.date && <font className = 'italic'>{data.date}</font>}{data.description || 'Sin descripción'}
             </p>
@@ -85,12 +85,12 @@ const Review = ({format = 'mini', index, data, className, key, animationConfig})
         <h3 className = 'my-2 text-2xl font-bold text-red-600'>{data.type}</h3>
         <div className = 'grid grid-cols-12 col-span-12 gap-4 mb-16 bg-gray-200'>
           <Slide {...animationConfig[0]}>
-            <div className = 'col-span-6'>
-              { getMediaByType(data.mediaType, data.path, 'h-96')}
+            <div className = 'col-span-12 md:col-span-6'>
+              { getMediaByType(data.mediaType, data.path, 'h-52 lg:h-96')}
             </div>
           </Slide>
           <Fade {...animationConfig[1]}>
-            <div className = 'col-span-6 py-6 pr-4'>
+            <div className = 'col-span-12 px-8 py-6 md:pr-4 md:col-span-6'>
               <h4 className = 'w-full mt-2 text-xl font-bold'>{data.title || 'Sin titulo'}</h4>
               <p className="w-full my-4 text-sm text-gray-600 whitespace-pre-line">
                 {data.description || 'Sin descripción'}

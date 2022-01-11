@@ -72,59 +72,86 @@ const talents = [
 const TalentPage = () => {
   return (
     <div className="grid w-full h-full gap-x-4 gap-y-1 lg:grid-cols-12 md:grid-cols-12 sm:grid-cols-12 xs:grid-cols-12 lg:py-11">
-      <div className="col-span-4">
-        <h1 className="w-full col-span-12 my-10 text-4xl font-bold">
+      <div className="col-span-12 lg:col-span-4">
+        <h1 className="w-full my-10 text-4xl font-bold text-center md:text-left">
           <Zoom left cascade>
             Mis talentos
           </Zoom>
         </h1>
-        <p className="w-full mt-4 mb-16 text-sm text-gray-600">
+        <p className="w-full mt-4 mb-16 text-sm text-gray-600 md:w-4/5">
           Estos son los servicios que tengo para tí, te dejaremos una pequeña
           descripción de cada uno para ver si alguno calza con tu proyecto.
         </p>
       </div>
-      <Divider className="mt-2" />
+      <Divider className="my-2" />
 
       {talents.map((talent, index) => {
         return (
           <div className="grid w-full h-full grid-cols-12 col-span-12 gap-4 mb-20 md:grid-cols-12 sm:grid-cols-12 xs:grid-cols-12">
-            <Rotate left>
-              <div className="col-span-6 h-96">
-                <Image layout="fill" src={talent.path} />
-              </div>
-            </Rotate>
-            <Rotate right cascade>
-              <div className="col-span-6 px-4 py-10 h-96">
-                <h4 className="w-full mt-2 text-xl font-bold text-red-600">
+            <Rotate top left>
+              <div className="col-span-12 md:col-span-6 h-fit">
+                <h4 className="block w-full mt-4 mb-4 text-xl font-bold text-center text-red-600 md:mt-2 md:mb-0 lg:hidden md:text-left">
                   {talent.title || "Sin titulo"}
                 </h4>
-                <p className="w-full my-4 text-sm text-gray-600 whitespace-pre-line">
-                  {talent.description || "Sin descripción"}
-                </p>
-                <ul>
-                  {talent.list.length > 0 &&
-                    talent.list.map((atr, index) => {
-                      return (
-                        <li className="inline px-2 text-sm text-gray-600">
-                          {atr}
-                        </li>
-                      );
-                    })}
-                </ul>
+                <Image width={705} height={462} src={talent.path} />
               </div>
             </Rotate>
+            <div className="hidden col-span-12 px-4 py-2 lg:block md:py-10 lg:col-span-6 h-96">
+              <Rotate bottom right>
+                <div>
+                  <h4 className="hidden w-full mt-2 text-xl font-bold text-red-600 lg:block">
+                    {talent.title || "Sin titulo"}
+                  </h4>
+                  <p className="w-full my-4 text-sm text-gray-600 whitespace-pre-line">
+                    {talent.description || "Sin descripción"}
+                  </p>
+                  <ul>
+                    {talent.list.length > 0 &&
+                      talent.list.map((atr, index) => {
+                        return (
+                          <li className="inline px-2 text-sm text-gray-600">
+                            {atr}
+                          </li>
+                        );
+                      })}
+                  </ul>
+                </div>
+              </Rotate>
+            </div>
+            <div className="block col-span-12 px-4 py-2 lg:hidden md:py-10 lg:col-span-6 h-96">
+              <Zoom>
+                <div>
+                  <h4 className="hidden w-full mt-2 text-xl font-bold text-red-600 lg:block">
+                    {talent.title || "Sin titulo"}
+                  </h4>
+                  <p className="w-full my-4 text-sm text-gray-600 whitespace-pre-line">
+                    {talent.description || "Sin descripción"}
+                  </p>
+                  <ul>
+                    {talent.list.length > 0 &&
+                      talent.list.map((atr, index) => {
+                        return (
+                          <li className="inline px-2 text-sm text-gray-600">
+                            {atr}
+                          </li>
+                        );
+                      })}
+                  </ul>
+                </div>
+              </Zoom>
+            </div>
           </div>
         );
       })}
 
       <div className="flex flex-col items-center justify-center col-span-12 mb-16">
-        <h1 className="w-full col-span-12 my-2 text-3xl font-bold text-center">
+        <h1 className="w-full my-2 text-2xl font-bold text-center md:text-3xl ">
           <Zoom left cascade>
             Seguir mirando proyectos
           </Zoom>
         </h1>
         <Link className="w-full" href="/briefcase" as="/portafolio">
-          <a className="w-full my-2 text-center text-red-600 hover:text-red-800">
+          <a className="w-3/5 my-2 text-center text-red-600 hover:text-red-800">
             Volver a portafolio
           </a>
         </Link>

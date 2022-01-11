@@ -10,7 +10,7 @@ const InspirerItem = ({className, item}) => {
   return (
     <Flip left>
       <div className = {className} key = {title+path}>
-        <div className = 'relative flex justify-center w-full h-full cursor-pointer ' onMouseEnter = {() => setShowTitle(true)} onMouseLeave = {() => setShowTitle(false)}>
+        <div className = 'relative justify-center hidden w-full h-full cursor-pointer lg:flex ' onMouseEnter = {() => setShowTitle(true)} onMouseLeave = {() => setShowTitle(false)}>
           <Image
             layout = 'fill'
             width = {1300}
@@ -19,9 +19,24 @@ const InspirerItem = ({className, item}) => {
             alt = {title + '-' + path}
           />
           <Fade bottom when = {showTitle}>
-            <div className = {'flex flex-col justify-start justify-self-end items-start w-full self-end h-5/12 absolute w-full p-8 bg-red-600 transition duration-200 opacity-80 '}>
-              <h2 className = {'self-start w-full text-white text-start '+ (detail ? 'text-base' : 'text-2xl')}>{title}</h2>
-              {detail && <p className = 'self-start w-full text-sm text-white text-start'>{detail}</p>}
+            <div className = {'flex flex-col justify-between lg:justify-start justify-self-end items-start w-full self-end h-full lg:h-5/12 absolute w-full p-3 lg:p-8 bg-red-600 transition duration-200 opacity-80 '}>
+              <h2 className = {'self-start w-full text-white text-start '+ (detail ? 'text-sm lg:text-base' : 'text-xl lg:text-2xl')}>{title}</h2>
+              {detail && <p className = 'self-start w-full text-xs text-white text-ellipsis lg:text-sm text-start'>{detail}</p>}
+            </div>
+          </Fade>
+        </div>
+        <div className = 'relative flex justify-center w-full h-full cursor-pointer lg:hidden 'onClick={() => setShowTitle(!showTitle)}>
+          <Image
+            layout = 'fill'
+            width = {1300}
+            height = {1000}
+            src = {path}
+            alt = {title + '-' + path}
+          />
+          <Fade bottom when = {showTitle}>
+            <div className = {'flex flex-col justify-between lg:justify-start justify-self-end items-start w-full self-end h-full lg:h-5/12 absolute w-full p-3 lg:p-8 bg-red-600 transition duration-200 opacity-80 '}>
+              <h2 className = {'self-start w-full text-white text-start '+ (detail ? 'text-sm lg:text-base' : 'text-xl lg:text-2xl')}>{title}</h2>
+              {detail && <p className = 'self-start w-full text-xs text-white text-ellipsis lg:text-sm text-start'>{detail}</p>}
             </div>
           </Fade>
         </div>

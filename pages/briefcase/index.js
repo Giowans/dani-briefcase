@@ -26,18 +26,18 @@ const BriefcasePage = () => {
   };
 
   return (
-    <div className="grid w-full h-full gap-x-4 gap-y-1 lg:grid-cols-12 md:grid-cols-12 sm:grid-cols-12 xs:grid-cols-12 lg:py-11">
-      <div className="col-span-4">
-        <h1 className="w-full col-span-12 my-10 text-4xl font-bold">
+    <div className="grid w-full h-full grid-cols-12 gap-x-4 gap-y-1 lg:py-11">
+      <div className="col-span-12 lg:col-span-4">
+        <h1 className="w-full col-span-12 my-10 text-4xl font-bold text-center md:text-left">
           <Zoom left cascade>
             Portafolio
           </Zoom>
         </h1>
-        <p className="w-full mt-4 mb-16 text-sm text-gray-600">
+        <p className="w-full mt-4 mb-16 text-sm text-center text-gray-600 md:text-left">
           Diseño para encontrar soluciones gráficas.
         </p>
       </div>
-      <div className="flex justify-end col-span-4 col-start-9 pt-8">
+      <div className="flex justify-end col-span-12 lg:pt-8 lg:col-span-4 lg:col-start-9">
         <Tabs
           options={["Todos", "Escolar", "Trabajo"]}
           onSelect={(value) => onSelectedTab(value)}
@@ -49,7 +49,7 @@ const BriefcasePage = () => {
         return (
           <BriefcaseItem
             onSelect={() => router.push("/briefcase/" + item.id)}
-            className="col-span-4 mt-3 h-80"
+            className="h-40 col-span-6 mt-3 md:col-span-4 lg:h-80 "
             briefcaseData={item}
             key={item.title + item.year + index}
           />
@@ -58,8 +58,8 @@ const BriefcasePage = () => {
 
       <Divider className="mt-16 mb-8" />
 
-      <div className="col-span-5">
-        <h1 className="w-full text-4xl font-bold">
+      <div className="col-span-12 lg:col-span-5">
+        <h1 className="w-full text-4xl font-bold text-center md:text-left">
           <Zoom right cascade>
             Mis talentos
           </Zoom>
@@ -77,7 +77,7 @@ const BriefcasePage = () => {
             <BriefcaseItem
               onSelect={() => router.push("/talent")}
               minimalist
-              className="h-64 col-span-4 mt-3"
+              className="col-span-12 mt-3 md:col-span-6 lg:h-72 lg:col-span-4 h-fit"
               briefcaseData={item}
               key={item.title + item.path + index}
             />
@@ -87,8 +87,8 @@ const BriefcasePage = () => {
 
       <Divider className="mt-16 mb-8" />
 
-      <div className="col-span-6">
-        <h1 className="flex flex-row w-full text-4xl font-bold">
+      <div className="col-span-12 lg:col-span-6">
+        <h1 className="flex flex-col items-center justify-center w-full text-4xl font-bold lg:flex-row md:justify-start">
           <Zoom bottom cascade>
             Mi proceso <font className="text-red-600">creativo</font>
           </Zoom>
@@ -98,7 +98,7 @@ const BriefcasePage = () => {
           trabajo, además de que nos ayuda a organizarnos y conocer la manera en
           que trabajamos.
         </p>
-        <p className="w-full pr-20 mt-4 mb-8 text-sm text-gray-600 text-start">
+        <p className="w-full mt-4 mb-8 text-sm text-gray-600 lg:pr-20 text-start">
           A continuación te presento la metología que empleo en cada uno de mis
           proyectos para poder resolverlos de la manera correcta.
         </p>
@@ -109,23 +109,45 @@ const BriefcasePage = () => {
           let opc = [
             { left: true, top: true, cascade: true },
             { right: true, top: true, cascade: true },
+            { left: true, bottom: true, cascade: true },
           ];
           return (
-            <Rotate {...opc[(index + 1) % 2 == 0 ? 1 : 0]}>
-              <div className="col-span-6 p-8 bg-gray-300">
-                <div className="flex flex-row items-center justify-start w-full">
-                  <h1 className="text-6xl font-bold text-red-600">
-                    0{index + 1}
-                  </h1>
-                  <h2 className="w-3/6 ml-10 text-2xl text-gray-700 text-start">
-                    {item.title}
-                  </h2>
-                </div>
-                <p className="w-full h-64 mt-12 text-sm text-gray-600 whitespace-pre-line text-start">
-                  {item.description}
-                </p>
+            <>
+              <div className="hidden w-full col-span-12 lg:block h-fit lg:col-span-6">
+                <Rotate {...opc[(index + 1) % 2 == 0 ? 1 : 0]}>
+                  <div className="col-span-6 p-8 bg-gray-300">
+                    <div className="flex flex-row items-center justify-start w-full">
+                      <h1 className="text-6xl font-bold text-red-600">
+                        0{index + 1}
+                      </h1>
+                      <h2 className="w-3/6 ml-10 text-2xl text-gray-700 text-start">
+                        {item.title}
+                      </h2>
+                    </div>
+                    <p className="w-full h-64 mt-12 text-sm text-gray-600 whitespace-pre-line text-start">
+                      {item.description}
+                    </p>
+                  </div>
+                </Rotate>
               </div>
-            </Rotate>
+              <div className="block w-full col-span-12 h-fit lg:col-span-6 lg:hidden">
+                <Rotate {...opc[0]}>
+                  <div className="w-full p-8 bg-gray-300 h-fit">
+                    <div className="flex flex-row items-center justify-start w-full">
+                      <h1 className="text-6xl font-bold text-red-600">
+                        0{index + 1}
+                      </h1>
+                      <h2 className="w-3/6 ml-10 text-lg text-gray-700 lg:text-2xl text-start">
+                        {item.title}
+                      </h2>
+                    </div>
+                    <p className="w-full mt-12 text-sm text-gray-600 whitespace-pre-line h-fit lg:h-64 text-start">
+                      {item.description}
+                    </p>
+                  </div>
+                </Rotate>
+              </div>
+            </>
           );
         })}
       </div>

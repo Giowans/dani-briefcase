@@ -67,9 +67,9 @@ const BriefcaseDetailPage = ({ data, ...props }) => {
   }, [data.id]);
 
   return (
-    <div className="grid w-full h-full gap-x-4 gap-y-1 lg:grid-cols-12 md:grid-cols-12 sm:grid-cols-12 xs:grid-cols-12 lg:py-11">
-      <div className="col-span-4">
-        <h1 className="flex flex-row w-full col-span-12 my-6 text-4xl font-bold">
+    <div className="grid w-full h-full grid-cols-12 gap-x-4 gap-y-1 lg:py-11">
+      <div className="col-span-12 lg:col-span-4">
+        <h1 className="flex flex-row w-full col-span-12 my-6 text-3xl font-bold lg:text-4xl">
           <Fade left cascade>
             {data.title}
           </Fade>
@@ -89,13 +89,19 @@ const BriefcaseDetailPage = ({ data, ...props }) => {
       <Divider className="mt-2 mb-4" />
       <div className="col-span-12">
         <Carrousel
-          imageStyles="h-screen"
-          className="h-screen max-h-screen"
+          imageStyles="lg:h-screen"
+          className="hidden lg:h-screen lg:max-h-screen lg:inline-grid"
           items={data.carrousel}
           itemsToShow={1}
         />
+        <Carrousel
+          imageStyles="h-fit"
+          className="h-64 lg:hidden"
+          itemsToShow={1}
+          items={data.carrousel}
+        />
       </div>
-      <div className="col-span-4 mt-16 h-96">
+      <div className="col-span-12 mt-16 lg:col-span-4 h-96">
         <Fade cascade>
           <div className="flex flex-col items-center p2">
             <h2 className="w-full text-red-600 text-start">Historia</h2>
@@ -105,7 +111,7 @@ const BriefcaseDetailPage = ({ data, ...props }) => {
           </div>
         </Fade>
       </div>
-      <div className="col-span-4 mt-16 h-96">
+      <div className="col-span-12 mt-16 lg:col-span-4 md:col-span-6 h-96">
         <Fade cascade>
           <div className="flex flex-col items-center justify-center w-full h-full">
             <Image
@@ -120,7 +126,7 @@ const BriefcaseDetailPage = ({ data, ...props }) => {
           </div>
         </Fade>
       </div>
-      <div className="col-span-4 mt-16 h-96">
+      <div className="col-span-12 mt-16 lg:col-span-4 md:col-span-6 h-96">
         <Fade cascade>
           <div className="flex flex-col items-center justify-center w-full h-full">
             <Image
@@ -148,7 +154,7 @@ const BriefcaseDetailPage = ({ data, ...props }) => {
           {data.applications[0].title}
         </p>
       </div>
-      <div className="col-span-6 col-start-7 my-12 h-96">
+      <div className="col-span-12 my-12 lg:col-span-6 lg:col-start-7 h-96">
         <Fade cascade>
           <div className="flex flex-col items-center p2">
             <h2 className="w-full text-red-600 text-start">Problema</h2>
@@ -171,7 +177,7 @@ const BriefcaseDetailPage = ({ data, ...props }) => {
           {data.applications[1].title}
         </p>
       </div>
-      <div className="col-span-8 mt-12">
+      <div className="col-span-12 mt-12 lg:col-span-8">
         <Fade>
           <Image
             width={1108}
@@ -184,7 +190,7 @@ const BriefcaseDetailPage = ({ data, ...props }) => {
           {data.applications[2].title}
         </p>
       </div>
-      <div className="col-span-4 my-12 h-96">
+      <div className="col-span-12 my-12 lg:col-span-4 h-96">
         <Fade cascade>
           <div className="flex flex-col items-center p2">
             <h2 className="w-full text-start">
@@ -209,7 +215,7 @@ const BriefcaseDetailPage = ({ data, ...props }) => {
           {data.applications[3].title}
         </p>
       </div>
-      <div className="flex flex-col items-center justify-center col-span-12 px-56 py-16 mt-10 bg-gray-200">
+      <div className="flex flex-col items-center justify-center col-span-12 px-8 py-4 mt-10 bg-gray-200 md:px-8 md:py-4 lg:px-56 lg:py-16">
         <h2 className="w-full text-start">
           Aprendizaje obtenido en el proyecto
         </h2>
@@ -234,13 +240,15 @@ const BriefcaseDetailPage = ({ data, ...props }) => {
                     alt={app.title}
                   />
                 </div>
-                <p className="mt-2 text-sm italic text-gray-600">{app.title}</p>
+                <p className="mt-2 text-xs italic text-gray-600 md:text-sm">
+                  {app.title}
+                </p>
               </div>
             </Fade>
           );
         })}
       </div>
-      <div className="flex flex-col items-center justify-center col-span-12 my-16">
+      <div className="flex flex-col items-center justify-center col-span-12 my-20 md:my-16">
         <h2 className="w-full text-2xl text-center">
           Seguir mirando proyectos
         </h2>
@@ -251,35 +259,67 @@ const BriefcaseDetailPage = ({ data, ...props }) => {
         </Link>
       </div>
       {prevNext.previous && prevNext.previous.id && (
-        <div className="flex flex-col items-center justify-center w-full h-full col-span-6 col-start-1 transition duration-500 ease-in-out transform cursor-default cursor-pointer hover:-translate-y-1 hover:scale-110">
-          <Fade left>
-            <div className="">
-              <Link href={"/briefcase/" + prevNext.previous.id}>
-                <Image
-                  width={830}
-                  height={400}
-                  src={prevNext.previous.path}
-                  alt={prevNext.previous.path}
-                />
-              </Link>
-            </div>
-          </Fade>
+        <div className="flex flex-col items-center justify-center w-full h-full col-span-12 transition duration-500 ease-in-out transform cursor-default cursor-pointer md:col-span-6 lg:col-start-1 hover:-translate-y-1 hover:scale-110">
+          <div className="hidden md:block">
+            <Fade left>
+              <div className="">
+                <Link href={"/briefcase/" + prevNext.previous.id}>
+                  <Image
+                    width={830}
+                    height={400}
+                    src={prevNext.previous.path}
+                    alt={prevNext.previous.path}
+                  />
+                </Link>
+              </div>
+            </Fade>
+          </div>
+          <div className="block md:hidden">
+            <Fade top>
+              <div className="">
+                <Link href={"/briefcase/" + prevNext.previous.id}>
+                  <Image
+                    width={830}
+                    height={400}
+                    src={prevNext.previous.path}
+                    alt={prevNext.previous.path}
+                  />
+                </Link>
+              </div>
+            </Fade>
+          </div>
         </div>
       )}
       {prevNext.next && prevNext.next.id && (
-        <div className="flex flex-col items-center justify-center w-full h-full col-span-6 col-start-7 transition duration-500 ease-in-out transform cursor-default cursor-pointer hover:-translate-y-1 hover:scale-110">
-          <Fade right>
-            <div className="">
-              <Link href={"/briefcase/" + prevNext.next.id}>
-                <Image
-                  width={830}
-                  height={400}
-                  src={prevNext.next.path}
-                  alt={prevNext.next.path}
-                />
-              </Link>
-            </div>
-          </Fade>
+        <div className="flex flex-col items-center justify-center w-full h-full col-span-12 transition duration-500 ease-in-out transform cursor-default cursor-pointer md:col-span-6 lg:col-start-7 hover:-translate-y-1 hover:scale-110">
+          <div className="hidden md:block">
+            <Fade right>
+              <div className="">
+                <Link href={"/briefcase/" + prevNext.next.id}>
+                  <Image
+                    width={830}
+                    height={400}
+                    src={prevNext.next.path}
+                    alt={prevNext.next.path}
+                  />
+                </Link>
+              </div>
+            </Fade>
+          </div>
+          <div className="block md:hidden">
+            <Fade bottom>
+              <div className="">
+                <Link href={"/briefcase/" + prevNext.next.id}>
+                  <Image
+                    width={830}
+                    height={400}
+                    src={prevNext.next.path}
+                    alt={prevNext.next.path}
+                  />
+                </Link>
+              </div>
+            </Fade>
+          </div>
         </div>
       )}
       <Footer

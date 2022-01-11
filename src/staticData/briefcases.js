@@ -550,6 +550,7 @@ export const briefcases = [
       {
         title: "Playeras",
         path: "/images/briefcase/briefcases/7/g6.jpg",
+        size: 1,
       },
     ],
   },
@@ -912,14 +913,17 @@ export const briefcases = [
       {
         title: "Publicación 2.3",
         path: "/images/briefcase/briefcases/11/g4.jpg",
+        size: 1,
       },
       {
         title: "Publicación 1.3",
         path: "/images/briefcase/briefcases/11/g5.jpg",
+        size: 1,
       },
       {
         title: "Publicación 2.2",
         path: "/images/briefcase/briefcases/11/g6.jpg",
+        size: 1,
       },
     ],
   },

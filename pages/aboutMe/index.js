@@ -222,7 +222,7 @@ const AboutMePage = () => {
         <h2 className="block w-full text-center lg:hidden">
           Mis <font className="text-red-600">pasatiempos</font>
         </h2>
-        <Fade right>
+        <Fade left>
           <Image
             layout="responsive"
             width={685}

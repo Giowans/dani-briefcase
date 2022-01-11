@@ -210,8 +210,8 @@ const reviewData = [
 const ActivePageTitle = ({ activeTab }) => {
   if (activeTab === "Todos") {
     return (
-      <div className="col-span-5">
-        <h1 className="w-full col-span-12 my-10 text-4xl font-bold">
+      <div className="col-span-12 lg:col-span-5">
+        <h1 className="w-full col-span-12 my-10 text-4xl font-bold text-center md:text-left">
           <Flip left cascade>
             Pensadores
           </Flip>
@@ -226,8 +226,8 @@ const ActivePageTitle = ({ activeTab }) => {
   }
   if (activeTab === "Blog") {
     return (
-      <div className="col-span-5">
-        <h1 className="w-full col-span-12 my-10 text-4xl font-bold">
+      <div className="col-span-12 lg:col-span-5">
+        <h1 className="w-full col-span-12 my-10 text-4xl font-bold text-center md:text-left">
           <Flip left cascade>
             Blogs
           </Flip>
@@ -241,8 +241,8 @@ const ActivePageTitle = ({ activeTab }) => {
   }
   if (activeTab === "Documental") {
     return (
-      <div className="col-span-5">
-        <h1 className="w-full col-span-12 my-10 text-4xl font-bold">
+      <div className="col-span-12 lg:col-span-5">
+        <h1 className="w-full col-span-12 my-10 text-4xl font-bold text-center md:text-left">
           <Flip left cascade>
             Documentales
           </Flip>
@@ -256,8 +256,8 @@ const ActivePageTitle = ({ activeTab }) => {
   }
   if (activeTab === "Libro") {
     return (
-      <div className="col-span-5">
-        <h1 className="w-full col-span-12 my-10 text-4xl font-bold">
+      <div className="col-span-12 lg:col-span-5">
+        <h1 className="w-full col-span-12 my-10 text-4xl font-bold text-center md:text-left">
           <Flip left cascade>
             Libros
           </Flip>
@@ -271,8 +271,8 @@ const ActivePageTitle = ({ activeTab }) => {
   }
   if (activeTab === "Artículo") {
     return (
-      <div className="col-span-5">
-        <h1 className="w-full col-span-12 my-10 text-4xl font-bold">
+      <div className="col-span-12 lg:col-span-5">
+        <h1 className="w-full col-span-12 my-10 text-4xl font-bold text-center md:text-left">
           <Flip left cascade>
             Artículos
           </Flip>
@@ -286,8 +286,8 @@ const ActivePageTitle = ({ activeTab }) => {
   }
   if (activeTab === "Clase") {
     return (
-      <div className="col-span-5">
-        <h1 className="w-full col-span-12 my-10 text-4xl font-bold">
+      <div className="col-span-12 lg:col-span-5">
+        <h1 className="w-full col-span-12 my-10 text-4xl font-bold text-center md:text-left">
           <Flip left cascade>
             Clases
           </Flip>
@@ -317,9 +317,9 @@ const ThinkersPage = ({ ...props }) => {
   };
 
   return (
-    <div className="grid w-full h-full gap-x-4 gap-y-1 lg:grid-cols-12 md:grid-cols-12 sm:grid-cols-12 xs:grid-cols-12 lg:py-11">
+    <div className="grid w-full h-full grid-cols-12 gap-x-4 gap-y-1 lg:py-11">
       <ActivePageTitle activeTab={activeTab} />
-      <div className="flex justify-end col-span-6 col-start-7 pt-8">
+      <div className="flex justify-end col-span-12 pt-8 lg:col-span-6 lg:col-start-7">
         <Tabs
           parentActive={activeTab}
           options={[
@@ -331,7 +331,7 @@ const ThinkersPage = ({ ...props }) => {
             "Clase",
           ]}
           onSelect={(value) => onSelectedTab(value)}
-          className="pt-20 pl-3"
+          className="pt-8 pl-3 lg:pt-20"
         />
       </div>
       <Divider className="mt-2" />
@@ -341,24 +341,41 @@ const ThinkersPage = ({ ...props }) => {
             <BriefcaseItem
               onSelect={() => onSelectedTab(item.title)}
               deepStyles="text-4xl justify-center items-center"
-              className="col-span-6 mt-3 h-80"
+              className="col-span-6 mt-3 h-52 lg:h-80"
               briefcaseData={item}
               key={item.title + index}
             />
           );
         } else {
           return (
-            <Review
-              format={activeTab !== "Artículo" ? "standard" : "article"}
-              className="col-span-6 mt-3 h-80"
-              data={item}
-              index={index}
-              key={item.title + index}
-              animationConfig={[
-                { left: true, cascade: true },
-                { right: true, cascade: true },
-              ]}
-            />
+            <>
+              <div className="hidden w-full col-span-12 lg:block">
+                <Review
+                  format={activeTab !== "Artículo" ? "standard" : "article"}
+                  className="col-span-6 mt-3 h-80"
+                  data={item}
+                  index={index}
+                  key={item.title + index}
+                  animationConfig={[
+                    { left: true, cascade: true },
+                    { right: true, cascade: true },
+                  ]}
+                />
+              </div>
+              <div className="block w-full col-span-12 lg:hidden">
+                <Review
+                  format={activeTab !== "Artículo" ? "standard" : "article"}
+                  className="col-span-6 mt-3 h-80"
+                  data={item}
+                  index={index}
+                  key={item.title + index}
+                  animationConfig={[
+                    { left: true, cascade: true },
+                    { bottom: true, cascade: true },
+                  ]}
+                />
+              </div>
+            </>
           );
         }
       })}
