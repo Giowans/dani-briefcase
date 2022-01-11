@@ -36,7 +36,7 @@ const InspirerItem = ({className, item}) => {
           <Fade bottom when = {showTitle}>
             <div className = {'flex flex-col justify-between lg:justify-start justify-self-end items-start w-full self-end h-full lg:h-5/12 absolute w-full p-3 lg:p-8 bg-red-600 transition duration-200 opacity-80 '}>
               <h2 className = {'self-start w-full text-white text-start '+ (detail ? 'text-sm lg:text-base' : 'text-xl lg:text-2xl')}>{title}</h2>
-              {detail && <p className = 'self-start w-full text-xs text-white text-ellipsis lg:text-sm text-start'>{detail}</p>}
+              {detail && <p className = 'self-start w-full text-white text-xxs text-ellipsis lg:text-xs text-start'>{detail}</p>}
             </div>
           </Fade>
         </div>

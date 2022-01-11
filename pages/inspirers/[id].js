@@ -36,7 +36,7 @@ const InspirersPage = ({ data, ...props }) => {
   return (
     <div className="grid w-full h-full grid-cols-12 gap-x-4 gap-y-1 lg:py-11">
       <div className="col-span-12 lg:col-span-4">
-        <h1 className="flex flex-row w-full my-10 text-3xl font-bold text-center md:text-left">
+        <h1 className="flex flex-col items-center justify-center w-full my-10 text-3xl font-bold text-center md:justify-start md:items-start lg:flex-row md:text-left">
           <Fade left cascade>
             Los que <font className="text-red-600">me inspiran</font>
           </Fade>
@@ -48,26 +48,40 @@ const InspirersPage = ({ data, ...props }) => {
       </div>
       <Divider className="my-6" />
       <div className="grid w-full h-full grid-cols-12 col-span-12 gap-4 mb-20 bg-gray-200 md:grid-cols-12 sm:grid-cols-12 xs:grid-cols-12">
-        <Rotate left>
+        <Rotate top left>
           <h4 className="block w-full col-span-12 mt-2 text-xl font-bold text-center text-red-600 lg:hidden">
             {data.title || "Sin titulo"}
           </h4>
           <div
-            className={"col-span-12 lg:col-span-6 h-64 lg:h-full " + data.color}
+            className={"col-span-12 lg:col-span-6 h-52 lg:h-full " + data.color}
           >
             <Image layout="fill" src={data.path} />
           </div>
         </Rotate>
-        <Rotate right cascade>
-          <div className="col-span-12 px-4 py-4 lg:col-span-6 h-fit lg:h-96">
-            <h4 className="hidden w-full mt-2 text-xl font-bold text-red-600 lg:block">
-              {data.title || "Sin titulo"}
-            </h4>
-            <p className="w-full my-4 text-sm text-gray-600 whitespace-pre-line">
-              {data.description || "Sin descripción"}
-            </p>
-          </div>
-        </Rotate>
+        <div className="hidden col-span-12 lg:block">
+          <Rotate top right cascade>
+            <div className="px-4 py-4 lg:col-span-6 h-fit lg:h-96">
+              <h4 className="hidden w-full mt-2 text-xl font-bold text-red-600 lg:block">
+                {data.title || "Sin titulo"}
+              </h4>
+              <p className="w-full my-4 text-sm text-gray-600 whitespace-pre-line">
+                {data.description || "Sin descripción"}
+              </p>
+            </div>
+          </Rotate>
+        </div>
+        <div className="flex col-span-12 lg:hidden">
+          <Rotate left top cascade>
+            <div className="px-4 py-4 lg:col-span-6 h-fit lg:h-96">
+              <h4 className="hidden w-full mt-2 text-xl font-bold text-red-600 lg:block">
+                {data.title || "Sin titulo"}
+              </h4>
+              <p className="w-full my-4 text-sm text-gray-600 whitespace-pre-line">
+                {data.description || "Sin descripción"}
+              </p>
+            </div>
+          </Rotate>
+        </div>
       </div>
       <h1 className="flex flex-col w-full col-span-12 mb-2 text-3xl font-bold lg:mt-10 lg:flex-row lg:text-4xl">
         <Fade right cascade>
@@ -110,8 +124,8 @@ const InspirersPage = ({ data, ...props }) => {
         items={inspirers}
       />
       <Divider className="my-2" />
-      <h2 className="flex flex-col items-start justify-start w-full col-span-12 my-10 text-3xl font-bold text-black lg:text-4xl lg:flex-row">
-        <Fade right cascade>
+      <h2 className="w-full col-span-12 my-10 text-3xl font-bold text-center md:text-left">
+        <Fade left>
           Otras referencias para
           <font className="text-red-600">inspirarme</font>
         </Fade>

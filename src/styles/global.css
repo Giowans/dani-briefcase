@@ -48,6 +48,11 @@
   grid-column: span 12 / span 12;
 }
 
+.text-xxs {
+  font-size: 0.55rem;
+  line-height: 0.8rem;
+}
+
 ul {
   list-style: none;
 }

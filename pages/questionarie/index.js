@@ -4,6 +4,7 @@ import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import { FaFacebookF } from "react-icons/fa";
 import { BsInstagram, BsWhatsapp } from "react-icons/bs";
 import Fade from "react-reveal/Fade";
+import Zoom from "react-reveal/Zoom";
 import Link from "next/link";
 
 const QuestionariePage = () => {
@@ -46,7 +47,7 @@ const QuestionariePage = () => {
   }
   return (
     <div className="inline-grid w-full grid-cols-12 gap-y-8 gap-x-4 lg:pt-11">
-      <h1 className="w-full col-span-12 mt-8 text-2xl font-bold lg:text-5xl lg:mt-4">
+      <h1 className="w-full col-span-12 my-10 text-3xl font-bold text-center md:text-left">
         <Fade cascade>Cuéntame sobre tu negocio</Fade>
       </h1>
       <div className="grid grid-cols-12 col-span-12 bg-gray-200 rounded-lg shadow-2xl">
